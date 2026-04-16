@@ -1,9 +1,0 @@
-Index: .idea/.name
-===================================================================
-diff --git a/.idea/.name b/.idea/.name
-deleted file mode 100644
---- a/.idea/.name	(revision e912481ac7cebc5e799a412d5752cb812b414829)
-+++ /dev/null	(revision e912481ac7cebc5e799a412d5752cb812b414829)
-@@ -1,1 +0,0 @@
--Run Tracker
-\ No newline at end of file
