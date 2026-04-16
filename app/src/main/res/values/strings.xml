@@ -1,3 +1,31 @@
 <resources>
     <string name="app_name">Run Tracker</string>
+    <string name="profile_username">Gonzalo R.</string>
+    <string name="profile_join_date">Te uniste en %1$d</string>
+    <string name="profile_edit">Editar perfil</string>
+    <string name="objectives_title">Objetivos</string>
+    <string name="objectives_see_all">Ver todo</string>
+    <string name="objective_sleep">Sueño</string>
+    <string name="objective_activity">Actividad</string>
+    <string name="objective_health">Salud</string>
+    <string name="objective_count_1">1 objetivo</string>
+    <string name="objective_count_5">5 objetivos</string>
+    <string name="achievements_title">Logros</string>
+    <string name="achievements_see_all">Ver todo</string>
+    <string name="achievement_first_run">Primera carrera</string>
+    <string name="achievement_first_run_desc">Completá tu primera corrida</string>
+    <string name="achievement_5k">5K</string>
+    <string name="achievement_5k_desc">Corré 5 km sin parar</string>
+    <string name="achievement_streak">Racha de 7 días</string>
+    <string name="achievement_streak_desc">Corré 7 días seguidos</string>
+    <string name="achievement_10k">10K</string>
+    <string name="achievement_10k_desc">Corré 10 km sin parar</string>
+    <string name="stats_title">Estadísticas</string>
+    <string name="stats_total_km">Km totales</string>
+    <string name="stats_total_runs">Carreras</string>
+    <string name="stats_best_time">Mejor tiempo</string>
+    <string name="stats_value_km">0 km</string>
+    <string name="stats_value_runs">0</string>
+    <string name="stats_value_time">--:--</string>
+
 </resources>
