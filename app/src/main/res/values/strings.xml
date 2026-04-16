@@ -3,4 +3,11 @@
     <string name="profile_username">Gonzalo R.</string>
     <string name="profile_join_date">Te uniste en 2026</string>
     <string name="profile_edit">Editar perfil</string>
+    <string name="objectives_title">Objetivos</string>
+    <string name="objectives_see_all">Ver todo</string>
+    <string name="objective_sleep">Sueño</string>
+    <string name="objective_activity">Actividad</string>
+    <string name="objective_health">Salud</string>
+    <string name="objective_count_1">1 objetivo</string>
+    <string name="objective_count_5">5 objetivos</string>
 </resources>
