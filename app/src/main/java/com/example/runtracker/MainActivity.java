@@ -1,5 +1,6 @@
 package com.example.runtracker;
 
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -15,22 +16,31 @@ public class MainActivity extends AppCompatActivity {
 
         bottomNav = findViewById(R.id.bottomNav);
 
+        ColorStateList colorStateList = new ColorStateList(
+                new int[][]{
+                        new int[]{android.R.attr.state_checked},
+                        new int[]{}
+                },
+                new int[]{
+                        0xFF00E5A0,
+                        0xFF888888
+                }
+        );
+        bottomNav.setItemTextColor(colorStateList);
+        bottomNav.setItemIconTintList(colorStateList);
+
         bottomNav.setOnItemSelectedListener(item -> {
             int id = item.getItemId();
             if (id == R.id.nav_home) {
-                // TODO: cargar fragment de inicio
                 return true;
             } else if (id == R.id.nav_run) {
-                // TODO: cargar fragment de correr
                 return true;
             } else if (id == R.id.nav_profile) {
-                // TODO: cargar fragment de perfil
                 return true;
             }
             return false;
         });
 
-        // Seleccionar inicio por defecto
         bottomNav.setSelectedItemId(R.id.nav_home);
     }
 }
