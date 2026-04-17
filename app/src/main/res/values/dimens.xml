@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margen_principal">16dp</dimen>
+    <dimen name="espaciado_grande">32dp</dimen>
+
+    <dimen name="circulo_pasos_size">200dp</dimen>
+    <dimen name="altura_boton_Accion">60dp</dimen>
+
+    <dimen name="texto_titulo">18sp</dimen>
+    <dimen name="texto_numero_gigante">48sp</dimen>
+    <dimen name="texto_metrica">20sp</dimen>
+
+    <dimen name="padding_card">12dp</dimen>
+
+    <dimen name="size_icon">24dp</dimen>
+
+    <dimen name="radius_esquinas">12dp</dimen>
+</resources>

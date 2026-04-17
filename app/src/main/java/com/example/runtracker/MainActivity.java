@@ -1,24 +1,54 @@
 package com.example.runtracker;
 
 import android.os.Bundle;
-
-import androidx.activity.EdgeToEdge;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
+
+    private TextView txtPasos;
+    private Button btnIniciar;
+    private LinearLayout contenedorDinamico;
+    private boolean estaCorriendo = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+
+
+        txtPasos = findViewById(R.id.txtPasos);
+        btnIniciar = findViewById(R.id.btnIniciar);
+        contenedorDinamico = findViewById(R.id.contenedorDinamico);
+
+
+        btnIniciar.setOnClickListener(v -> gestionarInicio());
+    }
+
+    private void gestionarInicio() {
+        if (!estaCorriendo) {
+
+            txtPasos.setText(R.string._105);
+            btnIniciar.setText(R.string.detener_actividad);
+
+
+            TextView tvMensa = new TextView(this);
+            tvMensa.setText(R.string.conector_gps);
+            tvMensa.setTextColor(androidx.core.content.ContextCompat.getColor(this, R.color.white));
+            tvMensa.setGravity(View.TEXT_ALIGNMENT_CENTER);
+
+
+            contenedorDinamico.addView(tvMensa);
+
+            estaCorriendo = true;
+        } else {
+
+            btnIniciar.setText(getString(R.string.btnIniciar));
+            contenedorDinamico.removeAllViews();
+            estaCorriendo = false;
+        }
     }
 }

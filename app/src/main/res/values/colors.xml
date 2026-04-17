@@ -2,4 +2,9 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="fondo_oscuro">#121212</color>
+    <color name="fitbit_teal">#00B2B2</color>
+    <color name="gris_texto">#AAAAAA</color>
+    <color name="gris_tarjeta">#1E1E1E</color>
 </resources>
