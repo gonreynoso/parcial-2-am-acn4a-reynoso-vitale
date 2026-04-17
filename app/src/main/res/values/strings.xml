@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Run Tracker</string>
+    <string name="hoy">Hoy</string>
+    <string name="pasos">Pasos</string>
+    <string name="txtKm">0 km</string>
+    <string name="txtCal">1,286 cal</string>
+    <string name="btnIniciar">INICIAR ACTIVIDAD</string>
+    <string name="pasos_iniciales">97</string>
+    <string name="distancia_label">Icono de ubicación y distancia</string>
+    <string name="calorias_label">Icono de fuego y calorías quemadas</string>
+    <string name="conector_gps">¡GPS Connected! Trackeando...</string>
+    <string name="detener_actividad">DETENER ACTIVIDAD</string>
+    <string name="_105">105</string>
+
 </resources>
