@@ -31,15 +31,6 @@ public class MainActivity extends AppCompatActivity {
         int active   = 0xFF00E5A0;
         int inactive = 0xFF888888;
 
-        findViewById(R.id.iconHome).setBackgroundTintList(null);
-        findViewById(R.id.iconProfile).setBackgroundTintList(null);
 
-        if (index == 0) {
-            ((android.widget.TextView) findViewById(R.id.labelHome)).setTextColor(active);
-            ((android.widget.TextView) findViewById(R.id.labelProfile)).setTextColor(inactive);
-        } else if (index == 2) {
-            ((android.widget.TextView) findViewById(R.id.labelHome)).setTextColor(inactive);
-            ((android.widget.TextView) findViewById(R.id.labelProfile)).setTextColor(active);
-        }
     }
 }

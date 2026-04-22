@@ -30,5 +30,10 @@
     <string name="nav_home">Inicio</string>
     <string name="nav_run">Correr</string>
     <string name="nav_profile">Perfil</string>
+    <string name="iniciar_carrera">Iniciar carrera</string>
+    <string name="perfil">Perfil</string>
+    <string name="stats">Progreso</string>
+    <string name="historial">Historial</string>
+    <string name="inicio">Inicio</string>
 
 </resources>
