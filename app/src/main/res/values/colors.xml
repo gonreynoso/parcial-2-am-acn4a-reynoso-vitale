@@ -3,6 +3,14 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <!-- Navbar / Tema oscuro neón -->
+    <color name="neon_green">#00E6A8</color>
+    <color name="bar_bg">#1A1D21</color>
+    <color name="icon_inactive">#8A8F98</color>
+    <color name="icon_active">#FFFFFF</color>
+    <color name="bg_dark">#0E1013</color>
+
+    <!-- Pantalla principal (Vitale) -->
     <color name="fondo_oscuro">#121212</color>
     <color name="fitbit_teal">#00B2B2</color>
     <color name="gris_texto">#AAAAAA</color>

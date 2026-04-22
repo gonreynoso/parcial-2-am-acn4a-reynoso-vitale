@@ -38,6 +38,18 @@
     <string name="stats_value_km">0 km</string>
     <string name="stats_value_runs">0</string>
     <string name="stats_value_time">--:--</string>
+
+    <!-- Navbar -->
+    <string name="nav_home">Inicio</string>
+    <string name="nav_run">Correr</string>
+    <string name="nav_profile">Perfil</string>
+    <string name="iniciar_carrera">Iniciar carrera</string>
+    <string name="perfil">Perfil</string>
+    <string name="stats">Progreso</string>
+    <string name="historial">Historial</string>
+    <string name="inicio">Inicio</string>
+
+    <!-- Pantalla principal (Vitale) -->
     <string name="litros">1.2 L</string>
     <string name="time">7h 15m</string>
     <string name="icono_de_pasos_desc">Icono de pasos</string>
