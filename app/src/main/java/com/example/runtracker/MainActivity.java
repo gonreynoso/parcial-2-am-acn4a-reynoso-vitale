@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
         fabRun.setOnClickListener(v -> gestionarInicio());
+        NavbarHelper.markActiveTab(this, NavbarHelper.Tab.HOME);
     }
 
     private void gestionarInicio() {
