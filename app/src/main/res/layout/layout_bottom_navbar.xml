@@ -43,7 +43,7 @@
                 style="@style/NavItem">
                 <ImageView
                     android:id="@+id/iconHistory"
-                    android:src="@drawable/ic_history"
+                    android:src="@drawable/ic_tornado"
                     style="@style/NavIcon"/>
                 <TextView
                     android:id="@+id/labelHistory"
