@@ -41,7 +41,10 @@ public class MainActivity extends AppCompatActivity {
         fabRun     = findViewById(R.id.fabRun);
 
         navHome.setOnClickListener(v -> {});
-        navHistory.setOnClickListener(v -> {});
+        navHistory.setOnClickListener(v -> {
+            startActivity(new Intent(this, ActivitiesActivity.class));
+            finish();
+        });
         navStats.setOnClickListener(v -> {});
         navProfile.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
