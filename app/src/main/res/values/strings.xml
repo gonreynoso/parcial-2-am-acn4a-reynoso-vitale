@@ -38,5 +38,9 @@
     <string name="stats_value_km">0 km</string>
     <string name="stats_value_runs">0</string>
     <string name="stats_value_time">--:--</string>
+    <string name="litros">1.2 L</string>
+    <string name="time">7h 15m</string>
+    <string name="icono_de_pasos_desc">Icono de pasos</string>
+    <string name="icono_de_ubicacion_desc">icono_de_ubicacion_desc\n</string>
 
 </resources>

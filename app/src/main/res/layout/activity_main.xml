@@ -49,69 +49,137 @@
             android:textColor="@color/gris_texto" />
     </LinearLayout>
 
+
+
+
+
+
     <LinearLayout
         android:id="@+id/layoutMetricas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:baselineAligned="false"
+        android:orientation="vertical"
         android:layout_marginTop="@dimen/espaciado_grande"
         app:layout_constraintTop_toBottomOf="@id/cardPasos">
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="4dp"
-            android:background="@drawable/bg_card"
-            android:padding="@dimen/padding_card"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="horizontal"
+            android:baselineAligned="false">
 
-            <ImageView
-                android:layout_width="@dimen/size_icon"
-                android:layout_height="@dimen/size_icon"
-                android:src="@drawable/ic_location"
-                android:layout_marginBottom="8dp"
-                app:tint="@color/fitbit_teal"
-                android:contentDescription="@string/distancia_label" />
-
-            <TextView
-                android:id="@+id/txtDistancia"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/txtKm"
-                android:textColor="@color/white"
-                android:textSize="@dimen/texto_metrica" />
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_card"
+                android:padding="@dimen/padding_card"
+                android:gravity="center"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="@dimen/size_icon"
+                    android:layout_height="@dimen/size_icon"
+                    android:src="@drawable/ic_location"
+                    android:layout_marginBottom="8dp"
+                    app:tint="@color/fitbit_teal"
+                    android:contentDescription="@string/distancia_label" />
+                <TextView
+                    android:id="@+id/txtDistancia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txtKm"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/texto_metrica" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_card"
+                android:padding="@dimen/padding_card"
+                android:gravity="center"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="@dimen/size_icon"
+                    android:layout_height="@dimen/size_icon"
+                    android:src="@drawable/ic_fire"
+                    android:layout_marginBottom="8dp"
+                    app:tint="@color/fitbit_teal"
+                    android:contentDescription="@string/calorias_label" />
+                <TextView
+                    android:id="@+id/txtCalorias"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txtCal"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/texto_metrica" />
+            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="4dp"
-            android:background="@drawable/bg_card"
-            android:padding="@dimen/padding_card"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="horizontal"
+            android:baselineAligned="false"
+            android:layout_marginTop="8dp">
 
-            <ImageView
-                android:layout_width="@dimen/size_icon"
-                android:layout_height="@dimen/size_icon"
-                android:src="@drawable/ic_fire"
-                android:layout_marginBottom="8dp"
-                app:tint="@color/fitbit_teal"
-                android:contentDescription="@string/calorias_label" />
-
-            <TextView
-                android:id="@+id/txtCalorias"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/txtCal"
-                android:textColor="@color/white"
-                android:textSize="@dimen/texto_metrica" />
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_card"
+                android:padding="@dimen/padding_card"
+                android:gravity="center"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="@dimen/size_icon"
+                    android:layout_height="@dimen/size_icon"
+                    android:src="@drawable/ic_paso"
+                    android:layout_marginBottom="8dp"
+                    app:tint="@color/fitbit_teal"
+                    android:contentDescription="@string/icono_de_pasos_desc"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/time"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/texto_metrica" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_card"
+                android:padding="@dimen/padding_card"
+                android:gravity="center"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="@dimen/size_icon"
+                    android:layout_height="@dimen/size_icon"
+                    android:src="@drawable/ic_water"
+                    android:layout_marginBottom="8dp"
+                    app:tint="@color/fitbit_teal"
+                    android:contentDescription="@string/icono_de_ubicacion_desc"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/litros"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/texto_metrica" />
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
+
+
+
+
 
     <LinearLayout
         android:id="@+id/contenedorDinamico"
