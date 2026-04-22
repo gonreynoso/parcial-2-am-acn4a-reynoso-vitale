@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import java.util.Calendar;
+import android.content.Intent;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -25,6 +26,10 @@ public class ProfileActivity extends AppCompatActivity {
         loadProfile();
         setupNavbar();
         NavbarHelper.markActiveTab(this, NavbarHelper.Tab.PROFILE);
+        TextView tvEditProfile = findViewById(R.id.tvEditProfile);
+        tvEditProfile.setOnClickListener(v -> {
+            startActivity(new Intent(this, EditProfileActivity.class));
+        });
     }
 
     private void bindViews() {
@@ -42,9 +47,11 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void loadProfile() {
-        int year = Calendar.getInstance().get(Calendar.YEAR);
-        tvUsername.setText(getString(R.string.profile_username));
-        tvJoinDate.setText(getString(R.string.profile_join_date, year));
+        UserPreferences prefs = new UserPreferences(this);
+        prefs.initializeJoinYearIfNeeded();
+
+        tvUsername.setText(prefs.getUsername());
+        tvJoinDate.setText(getString(R.string.profile_join_date, prefs.getJoinYear()));
         tvTotalKm.setText(getString(R.string.stats_value_km));
         tvTotalRuns.setText(getString(R.string.stats_value_runs));
         tvBestTime.setText(getString(R.string.stats_value_time));

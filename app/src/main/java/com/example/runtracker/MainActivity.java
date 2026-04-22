@@ -64,7 +64,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void loadSaludo() {
         TextView txtSaludo = findViewById(R.id.txtSaludo);
-        txtSaludo.setText("Hola, Gonzalo 👋");
+        UserPreferences prefs = new UserPreferences(this);
+        prefs.initializeJoinYearIfNeeded();
+        txtSaludo.setText("Hola, " + prefs.getUsername() + " 👋");
     }
 
     private void loadFrase() {
