@@ -42,7 +42,10 @@ public class ActivitiesActivity extends AppCompatActivity {
             finish();
         });
         navHistory.setOnClickListener(v -> {});
-        navStats.setOnClickListener(v -> {});
+        navStats.setOnClickListener(v -> {
+            startActivity(new Intent(this, ProgressActivity.class));
+            finish();
+        });
         navProfile.setOnClickListener(v -> {
             startActivity(new Intent(this, ProfileActivity.class));
             finish();

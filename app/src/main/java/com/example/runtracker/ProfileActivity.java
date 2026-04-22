@@ -59,7 +59,10 @@ public class ProfileActivity extends AppCompatActivity {
             startActivity(new Intent(this, ActivitiesActivity.class));
             finish();
         });
-        navStats.setOnClickListener(v -> {});
+        navStats.setOnClickListener(v -> {
+            startActivity(new Intent(this, ProgressActivity.class));
+            finish();
+        });
         navProfile.setOnClickListener(v -> {});
         fabRun.setOnClickListener(v -> {
             startActivity(new Intent(this, MainActivity.class));
