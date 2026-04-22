@@ -11,9 +11,21 @@
         <item name="android:layout_weight">1</item>
         <item name="android:orientation">vertical</item>
         <item name="android:gravity">center</item>
+
         <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
         <item name="android:clickable">true</item>
         <item name="android:focusable">true</item>
+    </style>
+
+    <style name="ShapeAppearance.App.BottomAppBar" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">24dp</item>
+
+    </style>
+
+    <style name="ShapeAppearance.App.Fab" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">24dp</item>
     </style>
 
     <style name="NavIcon">
@@ -27,7 +39,8 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">11sp</item>
         <item name="android:textColor">@color/icon_inactive</item>
-        <item name="android:layout_marginTop">2dp</item>
+
+        <item name="android:gravity">center</item>
     </style>
 
     <style name="Theme.RunTracker" parent="Base.Theme.RunTracker" />
