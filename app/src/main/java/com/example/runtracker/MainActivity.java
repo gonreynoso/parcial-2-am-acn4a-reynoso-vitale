@@ -6,6 +6,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.content.Intent;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -42,7 +43,10 @@ public class MainActivity extends AppCompatActivity {
         navHome.setOnClickListener(v -> {});
         navHistory.setOnClickListener(v -> {});
         navStats.setOnClickListener(v -> {});
-        navProfile.setOnClickListener(v -> {});
+        navProfile.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+            startActivity(intent);
+        });
         fabRun.setOnClickListener(v -> gestionarInicio());
     }
 
