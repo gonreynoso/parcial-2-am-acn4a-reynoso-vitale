@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Run Tracker</string>
+    <string name="app_name">Sprint</string>
     <string name="hoy">Hoy</string>
     <string name="pasos">Pasos</string>
     <string name="txtKm">0 km</string>
