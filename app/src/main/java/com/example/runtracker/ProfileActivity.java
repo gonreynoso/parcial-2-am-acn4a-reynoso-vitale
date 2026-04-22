@@ -24,6 +24,7 @@ public class ProfileActivity extends AppCompatActivity {
         bindViews();
         loadProfile();
         setupNavbar();
+        NavbarHelper.markActiveTab(this, NavbarHelper.Tab.PROFILE);
     }
 
     private void bindViews() {
