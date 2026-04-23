@@ -3,8 +3,7 @@ package com.example.runtracker;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
+
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -54,9 +53,7 @@ public class MainActivity extends AppCompatActivity {
         loadRacha();
         actualizarObjetivo(PASOS_INICIALES);
 
-        LinearLayout cardPasos = findViewById(R.id.cardPasos);
-        Animation animacion = AnimationUtils.loadAnimation(this, R.anim.aparecer);
-        cardPasos.startAnimation(animacion);
+
 
         setupNavbar();
         NavbarHelper.markActiveTab(this, NavbarHelper.Tab.HOME);
