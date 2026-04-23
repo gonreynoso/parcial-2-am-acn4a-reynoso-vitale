@@ -3,8 +3,7 @@ package com.example.runtracker;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
+
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -34,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView txtPasos, txtObjetivoProgreso;
     private ProgressBar progressObjetivo;
     private LinearLayout contenedorDinamico;
-    private LinearLayout navHome, navHistory, navStats, navProfile;
+    private LinearLayout navHome, navProfile;
     private FloatingActionButton fabRun;
     private boolean estaCorriendo = false;
 
@@ -54,9 +53,7 @@ public class MainActivity extends AppCompatActivity {
         loadRacha();
         actualizarObjetivo(PASOS_INICIALES);
 
-        LinearLayout cardPasos = findViewById(R.id.cardPasos);
-        Animation animacion = AnimationUtils.loadAnimation(this, R.anim.aparecer);
-        cardPasos.startAnimation(animacion);
+
 
         setupNavbar();
         NavbarHelper.markActiveTab(this, NavbarHelper.Tab.HOME);
@@ -105,20 +102,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupNavbar() {
         navHome    = findViewById(R.id.navHome);
-        navHistory = findViewById(R.id.navHistory);
-        navStats   = findViewById(R.id.navStats);
         navProfile = findViewById(R.id.navProfile);
         fabRun     = findViewById(R.id.fabRun);
 
         navHome.setOnClickListener(v -> {});
-        navHistory.setOnClickListener(v -> {
-            startActivity(new Intent(this, ActivitiesActivity.class));
-            finish();
-        });
-        navStats.setOnClickListener(v -> {
-            startActivity(new Intent(this, ProgressActivity.class));
-            finish();
-        });
         navProfile.setOnClickListener(v -> {
             startActivity(new Intent(this, ProfileActivity.class));
             finish();

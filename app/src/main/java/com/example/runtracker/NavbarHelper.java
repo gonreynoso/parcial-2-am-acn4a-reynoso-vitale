@@ -9,15 +9,13 @@ import androidx.core.content.ContextCompat;
 
 public class NavbarHelper {
 
-    public enum Tab { HOME, HISTORY, STATS, PROFILE }
+    public enum Tab { HOME, PROFILE }
 
     public static void markActiveTab(Activity activity, Tab activeTab) {
         int active   = ContextCompat.getColor(activity, R.color.neon_green);
         int inactive = ContextCompat.getColor(activity, R.color.icon_inactive);
 
         setTabColor(activity, R.id.iconHome,    R.id.labelHome,    activeTab == Tab.HOME    ? active : inactive);
-        setTabColor(activity, R.id.iconHistory, R.id.labelHistory, activeTab == Tab.HISTORY ? active : inactive);
-        setTabColor(activity, R.id.iconStats,   R.id.labelStats,   activeTab == Tab.STATS   ? active : inactive);
         setTabColor(activity, R.id.iconProfile, R.id.labelProfile, activeTab == Tab.PROFILE ? active : inactive);
     }
 

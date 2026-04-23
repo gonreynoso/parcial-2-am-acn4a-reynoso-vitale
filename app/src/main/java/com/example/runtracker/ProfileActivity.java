@@ -40,8 +40,7 @@ public class ProfileActivity extends AppCompatActivity {
         tvBestTime  = findViewById(R.id.tvBestTime);
 
         navHome    = findViewById(R.id.navHome);
-        navHistory = findViewById(R.id.navHistory);
-        navStats   = findViewById(R.id.navStats);
+
         navProfile = findViewById(R.id.navProfile);
         fabRun     = findViewById(R.id.fabRun);
     }
@@ -60,14 +59,6 @@ public class ProfileActivity extends AppCompatActivity {
     private void setupNavbar() {
         navHome.setOnClickListener(v -> {
             startActivity(new Intent(this, MainActivity.class));
-            finish();
-        });
-        navHistory.setOnClickListener(v -> {
-            startActivity(new Intent(this, ActivitiesActivity.class));
-            finish();
-        });
-        navStats.setOnClickListener(v -> {
-            startActivity(new Intent(this, ProgressActivity.class));
             finish();
         });
         navProfile.setOnClickListener(v -> {});
