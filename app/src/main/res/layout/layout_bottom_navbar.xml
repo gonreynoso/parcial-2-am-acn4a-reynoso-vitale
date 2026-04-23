@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:weightSum="5">
+            android:weightSum="3">
 
             <LinearLayout
                 android:id="@+id/navHome"
@@ -38,36 +38,10 @@
                     style="@style/NavLabel"/>
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/navHistory"
-                style="@style/NavItem">
-                <ImageView
-                    android:id="@+id/iconHistory"
-                    android:src="@drawable/ic_tornado"
-                    style="@style/NavIcon"/>
-                <TextView
-                    android:id="@+id/labelHistory"
-                    android:text="@string/historial"
-                    style="@style/NavLabel"/>
-            </LinearLayout>
-
             <Space
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"/>
-
-            <LinearLayout
-                android:id="@+id/navStats"
-                style="@style/NavItem">
-                <ImageView
-                    android:id="@+id/iconStats"
-                    android:src="@drawable/ic_article"
-                    style="@style/NavIcon"/>
-                <TextView
-                    android:id="@+id/labelStats"
-                    android:text="@string/stats"
-                    style="@style/NavLabel"/>
-            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/navProfile"

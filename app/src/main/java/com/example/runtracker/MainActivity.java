@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView txtPasos, txtObjetivoProgreso;
     private ProgressBar progressObjetivo;
     private LinearLayout contenedorDinamico;
-    private LinearLayout navHome, navHistory, navStats, navProfile;
+    private LinearLayout navHome, navProfile;
     private FloatingActionButton fabRun;
     private boolean estaCorriendo = false;
 
@@ -105,20 +105,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupNavbar() {
         navHome    = findViewById(R.id.navHome);
-        navHistory = findViewById(R.id.navHistory);
-        navStats   = findViewById(R.id.navStats);
         navProfile = findViewById(R.id.navProfile);
         fabRun     = findViewById(R.id.fabRun);
 
         navHome.setOnClickListener(v -> {});
-        navHistory.setOnClickListener(v -> {
-            startActivity(new Intent(this, ActivitiesActivity.class));
-            finish();
-        });
-        navStats.setOnClickListener(v -> {
-            startActivity(new Intent(this, ProgressActivity.class));
-            finish();
-        });
         navProfile.setOnClickListener(v -> {
             startActivity(new Intent(this, ProfileActivity.class));
             finish();

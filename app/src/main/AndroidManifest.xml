@@ -14,12 +14,7 @@
         <activity
             android:name=".EditProfileActivity"
             android:exported="false" />
-        <activity
-            android:name=".ProgressActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ActivitiesActivity"
-            android:exported="false" />
+
         <activity
             android:name=".SplashActivity"
             android:exported="true">
