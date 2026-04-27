@@ -5,19 +5,15 @@
     tools:parentTag="androidx.coordinatorlayout.widget.CoordinatorLayout">
 
     <com.google.android.material.bottomappbar.BottomAppBar
+        tools:ignore="BottomAppBar,CoordinatorLayout"
         android:id="@+id/bottomAppBar"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="72dp"
         android:layout_gravity="bottom"
         android:backgroundTint="@color/bar_bg"
-        android:paddingStart="8dp"
-        android:paddingEnd="8dp"
         android:fitsSystemWindows="false"
-        app:fabAlignmentMode="center"
-        app:fabCradleVerticalOffset="10dp"
-        app:contentInsetStart="0dp"
-        app:shapeAppearanceOverlay="@style/ShapeAppearance.App.BottomAppBar"
-        app:contentInsetEnd="0dp">
+        android:paddingTop="12dp"
+        app:shapeAppearanceOverlay="@style/ShapeAppearance.App.BottomAppBar">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -58,19 +54,26 @@
         </LinearLayout>
     </com.google.android.material.bottomappbar.BottomAppBar>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/fabRun"
         android:layout_width="72dp"
         android:layout_height="72dp"
-        android:layout_gravity="bottom|center_horizontal"
-        android:layout_marginBottom="10dp"
-        android:src="@drawable/ic_sprint"
-        android:scaleType="centerInside"
-        android:contentDescription="@string/iniciar_carrera"
-        app:backgroundTint="@color/neon_green"
-        app:tint="#000000"
-        app:borderWidth="0dp"
-        app:maxImageSize="36dp"
-        app:shapeAppearanceOverlay="@style/ShapeAppearance.App.Fab"/>
+        android:layout_marginBottom="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        app:layout_anchor="@id/bottomAppBar"
+        app:layout_anchorGravity="center"
+        app:cardCornerRadius="32dp"
+        app:cardBackgroundColor="@color/neon_green"
+        app:cardElevation="6dp">
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_sprint"
+            android:padding="16dp"
+            app:tint="#000000"
+            android:contentDescription="@string/iniciar_carrera" />
+    </com.google.android.material.card.MaterialCardView>
 </merge>
