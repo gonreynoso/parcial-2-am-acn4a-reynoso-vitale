@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.card.MaterialCardView;
 
 import java.util.Random;
 
@@ -30,11 +30,13 @@ public class MainActivity extends AppCompatActivity {
     private static final int PASOS_CORRIENDO = 105;
     private static final int RACHA_DIAS = 3;
 
+    private LinearLayout navHome, navProfile;
+    private MaterialCardView fabRun;
+
     private TextView txtPasos, txtObjetivoProgreso;
     private ProgressBar progressObjetivo;
     private LinearLayout contenedorDinamico;
-    private LinearLayout navHome, navProfile;
-    private FloatingActionButton fabRun;
+
     private boolean estaCorriendo = false;
 
     @Override
