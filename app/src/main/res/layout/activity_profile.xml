@@ -10,7 +10,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="80dp"
+        android:paddingBottom="@dimen/padding_bottom_nav"
         android:clipToPadding="false"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="@dimen/spacing_lg">
 
             <!-- HEADER -->
             <LinearLayout
@@ -26,20 +26,20 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:padding="16dp"
+                android:padding="@dimen/spacing_lg"
                 android:background="@color/gris_tarjeta">
 
                 <TextView
                     android:id="@+id/tvAvatarInitial"
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
+                    android:layout_width="@dimen/size_avatar"
+                    android:layout_height="@dimen/size_avatar"
                     android:background="@drawable/bg_avatar_circle"
                     android:gravity="center"
-                    android:text="G"
+                    android:text="@string/profile_avatar_default"
                     android:textColor="@color/black"
-                    android:textSize="28sp"
+                    android:textSize="@dimen/text_size_display"
                     android:textStyle="bold"
-                    android:layout_marginEnd="16dp" />
+                    android:layout_marginEnd="@dimen/spacing_lg" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -52,7 +52,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/profile_username"
                         android:textColor="@color/white"
-                        android:textSize="28sp"
+                        android:textSize="@dimen/text_size_display"
                         android:textStyle="bold" />
 
                     <TextView
@@ -61,14 +61,14 @@
                         android:layout_height="wrap_content"
                         android:text="@string/profile_join_date"
                         android:textColor="@color/text_hint"
-                        android:textSize="14sp"
-                        android:layout_marginTop="4dp" />
+                        android:textSize="@dimen/text_size_body"
+                        android:layout_marginTop="@dimen/spacing_xs" />
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnEditProfile"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginTop="@dimen/padding_card"
                         android:text="@string/profile_edit"
                         android:textColor="@color/black"
                         app:backgroundTint="@color/neon_green"
@@ -83,7 +83,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="24dp">
+                android:layout_marginTop="@dimen/spacing_xl">
 
                 <TextView
                     android:layout_width="0dp"
@@ -91,7 +91,7 @@
                     android:layout_weight="1"
                     android:text="@string/objectives_title"
                     android:textColor="@color/white"
-                    android:textSize="16sp"
+                    android:textSize="@dimen/text_size_subtitle"
                     android:textStyle="bold" />
 
                 <TextView
@@ -99,7 +99,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/objectives_see_all"
                     android:textColor="@color/accent_green"
-                    android:textSize="14sp" />
+                    android:textSize="@dimen/text_size_body" />
 
             </LinearLayout>
 
@@ -107,23 +107,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="12dp">
+                android:layout_marginTop="@dimen/padding_card">
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_marginEnd="6dp"
+                    android:layout_marginEnd="@dimen/spacing_sm"
                     android:background="@color/gris_tarjeta"
                     android:orientation="vertical"
-                    android:padding="12dp">
+                    android:padding="@dimen/padding_card">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/objective_sleep"
                         android:textColor="@color/white"
-                        android:textSize="14sp"
+                        android:textSize="@dimen/text_size_body"
                         android:textStyle="bold" />
 
                     <TextView
@@ -131,8 +131,8 @@
                         android:layout_height="wrap_content"
                         android:text="@string/objective_count_1"
                         android:textColor="@color/text_hint"
-                        android:textSize="12sp"
-                        android:layout_marginTop="4dp" />
+                        android:textSize="@dimen/text_size_caption"
+                        android:layout_marginTop="@dimen/spacing_xs" />
 
                 </LinearLayout>
 
@@ -140,18 +140,18 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_marginStart="6dp"
-                    android:layout_marginEnd="6dp"
+                    android:layout_marginStart="@dimen/spacing_sm"
+                    android:layout_marginEnd="@dimen/spacing_sm"
                     android:background="@color/gris_tarjeta"
                     android:orientation="vertical"
-                    android:padding="12dp">
+                    android:padding="@dimen/padding_card">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/objective_activity"
                         android:textColor="@color/white"
-                        android:textSize="14sp"
+                        android:textSize="@dimen/text_size_body"
                         android:textStyle="bold" />
 
                     <TextView
@@ -159,8 +159,8 @@
                         android:layout_height="wrap_content"
                         android:text="@string/objective_count_5"
                         android:textColor="@color/text_hint"
-                        android:textSize="12sp"
-                        android:layout_marginTop="4dp" />
+                        android:textSize="@dimen/text_size_caption"
+                        android:layout_marginTop="@dimen/spacing_xs" />
 
                 </LinearLayout>
 
@@ -168,17 +168,17 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_marginStart="6dp"
+                    android:layout_marginStart="@dimen/spacing_sm"
                     android:background="@color/gris_tarjeta"
                     android:orientation="vertical"
-                    android:padding="12dp">
+                    android:padding="@dimen/padding_card">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/objective_health"
                         android:textColor="@color/white"
-                        android:textSize="14sp"
+                        android:textSize="@dimen/text_size_body"
                         android:textStyle="bold" />
 
                     <TextView
@@ -186,8 +186,8 @@
                         android:layout_height="wrap_content"
                         android:text="@string/objective_count_1"
                         android:textColor="@color/text_hint"
-                        android:textSize="12sp"
-                        android:layout_marginTop="4dp" />
+                        android:textSize="@dimen/text_size_caption"
+                        android:layout_marginTop="@dimen/spacing_xs" />
 
                 </LinearLayout>
 
@@ -198,7 +198,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="24dp">
+                android:layout_marginTop="@dimen/spacing_xl">
 
                 <TextView
                     android:layout_width="0dp"
@@ -206,7 +206,7 @@
                     android:layout_weight="1"
                     android:text="@string/achievements_title"
                     android:textColor="@color/white"
-                    android:textSize="16sp"
+                    android:textSize="@dimen/text_size_subtitle"
                     android:textStyle="bold" />
 
                 <TextView
@@ -214,7 +214,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/achievements_see_all"
                     android:textColor="@color/accent_green"
-                    android:textSize="14sp" />
+                    android:textSize="@dimen/text_size_body" />
 
             </LinearLayout>
 
@@ -222,42 +222,42 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="12dp">
+                android:layout_marginTop="@dimen/padding_card">
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_marginEnd="6dp"
+                    android:layout_marginEnd="@dimen/spacing_sm"
                     android:background="@color/gris_tarjeta"
                     android:orientation="vertical"
                     android:gravity="center"
-                    android:padding="16dp">
+                    android:padding="@dimen/spacing_lg">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="🏃"
-                        android:textSize="32sp" />
+                        android:textSize="@dimen/text_size_emoji" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/achievement_first_run"
                         android:textColor="@color/white"
-                        android:textSize="12sp"
+                        android:textSize="@dimen/text_size_caption"
                         android:textStyle="bold"
                         android:gravity="center"
-                        android:layout_marginTop="8dp" />
+                        android:layout_marginTop="@dimen/spacing_md" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/achievement_first_run_desc"
                         android:textColor="@color/text_hint"
-                        android:textSize="11sp"
+                        android:textSize="@dimen/text_size_small"
                         android:gravity="center"
-                        android:layout_marginTop="4dp" />
+                        android:layout_marginTop="@dimen/spacing_xs" />
 
                 </LinearLayout>
 
@@ -265,36 +265,36 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_marginStart="6dp"
+                    android:layout_marginStart="@dimen/spacing_sm"
                     android:background="@color/gris_tarjeta"
                     android:orientation="vertical"
                     android:gravity="center"
-                    android:padding="16dp">
+                    android:padding="@dimen/spacing_lg">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="⚡"
-                        android:textSize="32sp" />
+                        android:textSize="@dimen/text_size_emoji" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/achievement_5k"
                         android:textColor="@color/white"
-                        android:textSize="12sp"
+                        android:textSize="@dimen/text_size_caption"
                         android:textStyle="bold"
                         android:gravity="center"
-                        android:layout_marginTop="8dp" />
+                        android:layout_marginTop="@dimen/spacing_md" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/achievement_5k_desc"
                         android:textColor="@color/text_hint"
-                        android:textSize="11sp"
+                        android:textSize="@dimen/text_size_small"
                         android:gravity="center"
-                        android:layout_marginTop="4dp" />
+                        android:layout_marginTop="@dimen/spacing_xs" />
 
                 </LinearLayout>
 
@@ -304,42 +304,42 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="6dp">
+                android:layout_marginTop="@dimen/spacing_sm">
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_marginEnd="6dp"
+                    android:layout_marginEnd="@dimen/spacing_sm"
                     android:background="@color/gris_tarjeta"
                     android:orientation="vertical"
                     android:gravity="center"
-                    android:padding="16dp">
+                    android:padding="@dimen/spacing_lg">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="🔥"
-                        android:textSize="32sp" />
+                        android:textSize="@dimen/text_size_emoji" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/achievement_streak"
                         android:textColor="@color/white"
-                        android:textSize="12sp"
+                        android:textSize="@dimen/text_size_caption"
                         android:textStyle="bold"
                         android:gravity="center"
-                        android:layout_marginTop="8dp" />
+                        android:layout_marginTop="@dimen/spacing_md" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/achievement_streak_desc"
                         android:textColor="@color/text_hint"
-                        android:textSize="11sp"
+                        android:textSize="@dimen/text_size_small"
                         android:gravity="center"
-                        android:layout_marginTop="4dp" />
+                        android:layout_marginTop="@dimen/spacing_xs" />
 
                 </LinearLayout>
 
@@ -347,36 +347,36 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_marginStart="6dp"
+                    android:layout_marginStart="@dimen/spacing_sm"
                     android:background="@color/gris_tarjeta"
                     android:orientation="vertical"
                     android:gravity="center"
-                    android:padding="16dp">
+                    android:padding="@dimen/spacing_lg">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="🏆"
-                        android:textSize="32sp" />
+                        android:textSize="@dimen/text_size_emoji" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/achievement_10k"
                         android:textColor="@color/white"
-                        android:textSize="12sp"
+                        android:textSize="@dimen/text_size_caption"
                         android:textStyle="bold"
                         android:gravity="center"
-                        android:layout_marginTop="8dp" />
+                        android:layout_marginTop="@dimen/spacing_md" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/achievement_10k_desc"
                         android:textColor="@color/text_hint"
-                        android:textSize="11sp"
+                        android:textSize="@dimen/text_size_small"
                         android:gravity="center"
-                        android:layout_marginTop="4dp" />
+                        android:layout_marginTop="@dimen/spacing_xs" />
 
                 </LinearLayout>
 
@@ -386,27 +386,27 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="@dimen/spacing_xl"
                 android:text="@string/stats_title"
                 android:textColor="@color/white"
-                android:textSize="16sp"
+                android:textSize="@dimen/text_size_subtitle"
                 android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="12dp">
+                android:layout_marginTop="@dimen/padding_card">
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_marginEnd="6dp"
+                    android:layout_marginEnd="@dimen/spacing_sm"
                     android:background="@color/gris_tarjeta"
                     android:orientation="vertical"
                     android:gravity="center"
-                    android:padding="16dp">
+                    android:padding="@dimen/spacing_lg">
 
                     <TextView
                         android:id="@+id/tvTotalKm"
@@ -414,7 +414,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/stats_value_km"
                         android:textColor="@color/accent_green"
-                        android:textSize="22sp"
+                        android:textSize="@dimen/text_size_headline"
                         android:textStyle="bold" />
 
                     <TextView
@@ -422,8 +422,8 @@
                         android:layout_height="wrap_content"
                         android:text="@string/stats_total_km"
                         android:textColor="@color/text_hint"
-                        android:textSize="12sp"
-                        android:layout_marginTop="4dp" />
+                        android:textSize="@dimen/text_size_caption"
+                        android:layout_marginTop="@dimen/spacing_xs" />
 
                 </LinearLayout>
 
@@ -431,12 +431,12 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_marginStart="6dp"
-                    android:layout_marginEnd="6dp"
+                    android:layout_marginStart="@dimen/spacing_sm"
+                    android:layout_marginEnd="@dimen/spacing_sm"
                     android:background="@color/gris_tarjeta"
                     android:orientation="vertical"
                     android:gravity="center"
-                    android:padding="16dp">
+                    android:padding="@dimen/spacing_lg">
 
                     <TextView
                         android:id="@+id/tvTotalRuns"
@@ -444,7 +444,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/stats_value_runs"
                         android:textColor="@color/accent_green"
-                        android:textSize="22sp"
+                        android:textSize="@dimen/text_size_headline"
                         android:textStyle="bold" />
 
                     <TextView
@@ -452,8 +452,8 @@
                         android:layout_height="wrap_content"
                         android:text="@string/stats_total_runs"
                         android:textColor="@color/text_hint"
-                        android:textSize="12sp"
-                        android:layout_marginTop="4dp" />
+                        android:textSize="@dimen/text_size_caption"
+                        android:layout_marginTop="@dimen/spacing_xs" />
 
                 </LinearLayout>
 
@@ -461,11 +461,11 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_marginStart="6dp"
+                    android:layout_marginStart="@dimen/spacing_sm"
                     android:background="@color/gris_tarjeta"
                     android:orientation="vertical"
                     android:gravity="center"
-                    android:padding="16dp">
+                    android:padding="@dimen/spacing_lg">
 
                     <TextView
                         android:id="@+id/tvBestTime"
@@ -473,7 +473,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/stats_value_time"
                         android:textColor="@color/accent_green"
-                        android:textSize="22sp"
+                        android:textSize="@dimen/text_size_headline"
                         android:textStyle="bold" />
 
                     <TextView
@@ -481,8 +481,8 @@
                         android:layout_height="wrap_content"
                         android:text="@string/stats_best_time"
                         android:textColor="@color/text_hint"
-                        android:textSize="12sp"
-                        android:layout_marginTop="4dp" />
+                        android:textSize="@dimen/text_size_caption"
+                        android:layout_marginTop="@dimen/spacing_xs" />
 
                 </LinearLayout>
 

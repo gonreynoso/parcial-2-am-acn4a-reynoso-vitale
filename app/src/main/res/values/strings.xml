@@ -50,9 +50,20 @@
     <string name="inicio">Inicio</string>
 
     <!-- Pantalla principal (Vitale) -->
+    <string name="daily_goal_title">Objetivo diario</string>
+    <string name="streak_encouragement">¡Seguí así para mantenerla!</string>
     <string name="litros">1.2 L</string>
     <string name="time">7h 15m</string>
     <string name="icono_de_pasos_desc">Icono de pasos</string>
     <string name="icono_de_ubicacion_desc">icono_de_ubicacion_desc\n</string>
+
+    <!-- Editar perfil -->
+    <string name="edit_profile_username_label">Nombre de usuario</string>
+    <string name="edit_profile_username_hint">Ej: Gonzalo</string>
+    <string name="edit_profile_save">Guardar</string>
+
+    <!-- General -->
+    <string name="content_desc_back">Volver</string>
+    <string name="profile_avatar_default">G</string>
 
 </resources>

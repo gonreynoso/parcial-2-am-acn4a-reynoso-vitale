@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:layout_marginTop="8dp">
+        android:layout_marginTop="@dimen/spacing_md">
 
         <ImageView
             android:id="@+id/btnBack"
@@ -25,37 +25,37 @@
             android:clickable="true"
             android:focusable="true"
             app:tint="@color/white"
-            android:contentDescription="Volver"/>
+            android:contentDescription="@string/content_desc_back"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Editar perfil"
+            android:text="@string/profile_edit"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:layout_marginStart="14dp"/>
+            android:layout_marginStart="@dimen/padding_content"/>
     </LinearLayout>
 
     <!-- Formulario -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nombre de usuario"
+        android:text="@string/edit_profile_username_label"
         android:textColor="@color/gris_texto"
-        android:textSize="13sp"
-        android:layout_marginTop="32dp"/>
+        android:textSize="@dimen/text_size_label"
+        android:layout_marginTop="@dimen/spacing_xxl"/>
 
     <EditText
         android:id="@+id/inputUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="@dimen/spacing_md"
         android:background="@drawable/bg_card"
-        android:padding="14dp"
+        android:padding="@dimen/padding_content"
         android:textColor="@color/white"
         android:textColorHint="@color/gris_texto"
-        android:hint="Ej: Gonzalo"
+        android:hint="@string/edit_profile_username_hint"
         android:inputType="textPersonName"
         android:maxLength="30"
         android:autofillHints="name"/>
@@ -65,8 +65,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/text_error"
-        android:textSize="12sp"
-        android:layout_marginTop="6dp"
+        android:textSize="@dimen/text_size_caption"
+        android:layout_marginTop="@dimen/spacing_sm"
         android:visibility="gone"
         tools:text="El nombre no puede estar vacío"
         xmlns:tools="http://schemas.android.com/tools"/>
@@ -76,10 +76,10 @@
         android:id="@+id/btnGuardar"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:text="Guardar"
+        android:text="@string/edit_profile_save"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:backgroundTint="@color/neon_green"
-        android:layout_marginTop="24dp"/>
+        android:layout_marginTop="@dimen/spacing_xl"/>
 
 </LinearLayout>

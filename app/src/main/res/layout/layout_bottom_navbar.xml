@@ -8,11 +8,11 @@
         tools:ignore="BottomAppBar,CoordinatorLayout"
         android:id="@+id/bottomAppBar"
         android:layout_width="match_parent"
-        android:layout_height="72dp"
+        android:layout_height="@dimen/size_fab"
         android:layout_gravity="bottom"
         android:backgroundTint="@color/bar_bg"
         android:fitsSystemWindows="false"
-        android:paddingTop="12dp"
+        android:paddingTop="@dimen/padding_card"
         app:shapeAppearanceOverlay="@style/ShapeAppearance.App.BottomAppBar">
 
         <LinearLayout
@@ -56,9 +56,9 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/fabRun"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="@dimen/size_fab"
+        android:layout_height="@dimen/size_fab"
+        android:layout_marginBottom="@dimen/spacing_md"
         android:clickable="true"
         android:focusable="true"
         android:foreground="?attr/selectableItemBackgroundBorderless"
@@ -72,7 +72,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/ic_sprint"
-            android:padding="16dp"
+            android:padding="@dimen/spacing_lg"
             app:tint="@color/black"
             android:contentDescription="@string/iniciar_carrera" />
     </com.google.android.material.card.MaterialCardView>
