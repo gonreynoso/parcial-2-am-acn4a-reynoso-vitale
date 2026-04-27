@@ -9,13 +9,13 @@ import android.content.Intent;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.card.MaterialCardView;
 
 public class ProfileActivity extends AppCompatActivity {
 
     private TextView tvUsername, tvJoinDate, tvTotalKm, tvTotalRuns, tvBestTime;
     private LinearLayout navHome, navHistory, navStats, navProfile;
-    private FloatingActionButton fabRun;
+    private MaterialCardView fabRun;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
