@@ -73,7 +73,7 @@
             android:layout_height="match_parent"
             android:src="@drawable/ic_sprint"
             android:padding="16dp"
-            app:tint="#000000"
+            app:tint="@color/black"
             android:contentDescription="@string/iniciar_carrera" />
     </com.google.android.material.card.MaterialCardView>
 </merge>

@@ -64,7 +64,7 @@
         android:id="@+id/txtError"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#FF5252"
+        android:textColor="@color/text_error"
         android:textSize="12sp"
         android:layout_marginTop="6dp"
         android:visibility="gone"
@@ -77,7 +77,7 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:text="Guardar"
-        android:textColor="#000000"
+        android:textColor="@color/black"
         android:textStyle="bold"
         android:backgroundTint="@color/neon_green"
         android:layout_marginTop="24dp"/>
