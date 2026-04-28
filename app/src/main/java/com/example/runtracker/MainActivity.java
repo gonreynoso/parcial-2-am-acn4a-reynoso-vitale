@@ -39,6 +39,11 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean estaCorriendo = false;
 
+    private android.os.Handler handler = new android.os.Handler();
+    private Runnable runnable;
+    private int contadorPasos = PASOS_INICIALES;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,20 +91,64 @@ public class MainActivity extends AppCompatActivity {
 
     private void gestionarInicio() {
         if (!estaCorriendo) {
-            txtPasos.setText(String.valueOf(PASOS_CORRIENDO));
-            actualizarObjetivo(PASOS_CORRIENDO);
+          estaCorriendo = true;
 
-            TextView tvMensa = new TextView(this);
-            tvMensa.setText(R.string.conector_gps);
-            tvMensa.setTextColor(androidx.core.content.ContextCompat.getColor(this, R.color.white));
-            tvMensa.setGravity(View.TEXT_ALIGNMENT_CENTER);
+            //TextView tvMensa = new TextView(this);
+            //tvMensa.setText(R.string.conector_gps);
+            //tvMensa.setTextColor(androidx.core.content.ContextCompat.getColor(this, R.color.white));
+            //tvMensa.setGravity(View.TEXT_ALIGNMENT_CENTER);
 
-            contenedorDinamico.addView(tvMensa);
-            estaCorriendo = true;
-        } else {
-            contenedorDinamico.removeAllViews();
+            //contenedorDinamico.addView(tvMensa);
+
+            runnable = new Runnable() {
+                @Override
+                public void run() {
+                    if (contadorPasos < 10000) {
+                        contadorPasos++;
+                        txtPasos.setText(String.valueOf(contadorPasos));
+                        actualizarObjetivo(contadorPasos);
+
+
+                        handler.postDelayed(this, 1000);
+                }
+            }
+        };
+            handler.post(runnable);
+    } else {
             estaCorriendo = false;
+            handler.removeCallbacks(runnable);
+
+            contenedorDinamico.removeAllViews();
+
+            agregarResumenHistorial();
+
+
         }
+    }
+
+    private void agregarResumenHistorial() {
+
+        TextView tvHistorial = new TextView(this);
+
+
+        tvHistorial.setText("🏃 Sesión finalizada: " + contadorPasos + " pasos.");
+
+
+        tvHistorial.setTextColor(androidx.core.content.ContextCompat.getColor(this, R.color.white));
+
+
+        tvHistorial.setBackgroundResource(R.drawable.bg_card);
+        tvHistorial.setPadding(40, 40, 40, 40);
+
+
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT);
+        params.setMargins(0, 30, 0, 0);
+        tvHistorial.setLayoutParams(params);
+
+
+        contenedorDinamico.addView(tvHistorial);
     }
 
     private void setupNavbar() {
@@ -110,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
         navHome.setOnClickListener(v -> {});
         navProfile.setOnClickListener(v -> {
             startActivity(new Intent(this, ProfileActivity.class));
-            finish();
+
         });
         fabRun.setOnClickListener(v -> gestionarInicio());
     }
