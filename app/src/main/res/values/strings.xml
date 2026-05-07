@@ -1,4 +1,69 @@
 <resources>
-    <string name="app_name">Run Tracker</string>
+    <string name="app_name">Sprint</string>
+    <string name="hoy">Hoy</string>
+    <string name="pasos">Pasos</string>
+    <string name="txtKm">0 km</string>
+    <string name="txtCal">1,286 cal</string>
+    <string name="btnIniciar">INICIAR ACTIVIDAD</string>
+    <string name="pasos_iniciales">97</string>
+    <string name="distancia_label">Icono de ubicación y distancia</string>
+    <string name="calorias_label">Icono de fuego y calorías quemadas</string>
+    <string name="conector_gps">¡GPS Connected! Trackeando...</string>
+    <string name="detener_actividad">DETENER ACTIVIDAD</string>
+    <string name="_105">105</string>
+    <string name="profile_username">Invitado</string>
+    <string name="profile_join_date">Te uniste en %1$d</string>
+    <string name="profile_edit">Editar perfil</string>
+    <string name="objectives_title">Objetivos</string>
+    <string name="objectives_see_all">Ver todo</string>
+    <string name="objective_sleep">Sueño</string>
+    <string name="objective_activity">Actividad</string>
+    <string name="objective_health">Salud</string>
+    <string name="objective_count_1">1 objetivo</string>
+    <string name="objective_count_5">5 objetivos</string>
+    <string name="achievements_title">Logros</string>
+    <string name="achievements_see_all">Ver todo</string>
+    <string name="achievement_first_run">Primera carrera</string>
+    <string name="achievement_first_run_desc">Completá tu primera corrida</string>
+    <string name="achievement_5k">5K</string>
+    <string name="achievement_5k_desc">Corré 5 km sin parar</string>
+    <string name="achievement_streak">Racha de 7 días</string>
+    <string name="achievement_streak_desc">Corré 7 días seguidos</string>
+    <string name="achievement_10k">10K</string>
+    <string name="achievement_10k_desc">Corré 10 km sin parar</string>
+    <string name="stats_title">Estadísticas</string>
+    <string name="stats_total_km">Km totales</string>
+    <string name="stats_total_runs">Carreras</string>
+    <string name="stats_best_time">Mejor tiempo</string>
+    <string name="stats_value_km">0 km</string>
+    <string name="stats_value_runs">0</string>
+    <string name="stats_value_time">--:--</string>
+
+    <!-- Navbar -->
+    <string name="nav_home">Inicio</string>
+    <string name="nav_run">Correr</string>
+    <string name="nav_profile">Perfil</string>
+    <string name="iniciar_carrera">Iniciar carrera</string>
+    <string name="perfil">Perfil</string>
+    <string name="stats">Progreso</string>
+    <string name="historial">Actividades</string>
+    <string name="inicio">Inicio</string>
+
+    <!-- Pantalla principal (Vitale) -->
+    <string name="daily_goal_title">Objetivo diario</string>
+    <string name="streak_encouragement">¡Seguí así para mantenerla!</string>
+    <string name="litros">1.2 L</string>
+    <string name="time">7h 15m</string>
+    <string name="icono_de_pasos_desc">Icono de pasos</string>
+    <string name="icono_de_ubicacion_desc">icono_de_ubicacion_desc\n</string>
+
+    <!-- Editar perfil -->
+    <string name="edit_profile_username_label">Nombre de usuario</string>
+    <string name="edit_profile_username_hint">Ej: Gonzalo</string>
+    <string name="edit_profile_save">Guardar</string>
+
+    <!-- General -->
+    <string name="content_desc_back">Volver</string>
+    <string name="profile_avatar_default">G</string>
 
 </resources>

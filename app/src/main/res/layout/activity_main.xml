@@ -1,19 +1,305 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/fondo_oscuro"
+    android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Mi Run Tracker"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/padding_bottom_nav"
+        android:clipToPadding="false"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:id="@+id/fragmentContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_lg">
+
+            <!-- Saludo -->
+            <TextView
+                android:id="@+id/txtSaludo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_headline"
+                android:textStyle="bold"
+                tools:text="Hola, Invitado 👋"/>
+
+            <TextView
+                android:id="@+id/txtFrase"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/gris_texto"
+                android:textSize="@dimen/text_size_label"
+                android:layout_marginTop="@dimen/spacing_xs"
+                tools:text="Hoy es un buen día para correr"/>
+
+            <TextView
+                android:id="@+id/lblHoy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/hoy"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_title"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center_horizontal"/>
+
+            <!-- Círculo pasos -->
+            <LinearLayout
+                android:id="@+id/cardPasos"
+                android:layout_width="@dimen/size_steps_circle"
+                android:layout_height="@dimen/size_steps_circle"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/shape_circle"
+                android:layout_marginTop="@dimen/spacing_xxl"
+                android:layout_gravity="center_horizontal">
+
+                <TextView
+                    android:id="@+id/txtPasos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pasos_iniciales"
+                    android:textColor="@color/fitbit_teal"
+                    android:textSize="@dimen/text_size_giant"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pasos"
+                    android:textColor="@color/gris_texto" />
+            </LinearLayout>
+
+            <!-- Objetivo diario -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_card"
+                android:padding="@dimen/padding_content"
+                android:layout_marginTop="@dimen/spacing_xxl">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/daily_goal_title"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_body"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/txtObjetivoProgreso"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/fitbit_teal"
+                        android:textSize="@dimen/text_size_label"
+                        android:textStyle="bold"
+                        tools:text="97 / 10,000"/>
+                </LinearLayout>
+
+                <ProgressBar
+                    android:id="@+id/progressObjetivo"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/spacing_md"
+                    android:layout_marginTop="10dp"
+                    android:max="10000"
+                    android:progress="97"
+                    android:progressTint="@color/fitbit_teal"
+                    android:progressBackgroundTint="@color/gris_texto"/>
+            </LinearLayout>
+
+            <!-- Card de racha -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_card"
+                android:padding="@dimen/padding_content"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🔥"
+                    android:textSize="@dimen/text_size_display"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="@dimen/padding_card">
+
+                    <TextView
+                        android:id="@+id/txtRachaTitulo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        tools:text="Racha de 3 días"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/streak_encouragement"
+                        android:textColor="@color/gris_texto"
+                        android:textSize="@dimen/text_size_caption"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Métricas (las de Vitale) -->
+            <LinearLayout
+                android:id="@+id/layoutMetricas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/spacing_xxl">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:baselineAligned="false">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_margin="@dimen/spacing_xs"
+                        android:background="@drawable/bg_card"
+                        android:padding="@dimen/padding_card"
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:layout_width="@dimen/size_icon"
+                            android:layout_height="@dimen/size_icon"
+                            android:src="@drawable/ic_location"
+                            android:layout_marginBottom="@dimen/spacing_md"
+                            app:tint="@color/fitbit_teal"
+                            android:contentDescription="@string/distancia_label" />
+                        <TextView
+                            android:id="@+id/txtDistancia"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/txtKm"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_size_metric" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_margin="@dimen/spacing_xs"
+                        android:background="@drawable/bg_card"
+                        android:padding="@dimen/padding_card"
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:layout_width="@dimen/size_icon"
+                            android:layout_height="@dimen/size_icon"
+                            android:src="@drawable/ic_fire"
+                            android:layout_marginBottom="@dimen/spacing_md"
+                            app:tint="@color/fitbit_teal"
+                            android:contentDescription="@string/calorias_label" />
+                        <TextView
+                            android:id="@+id/txtCalorias"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/txtCal"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_size_metric" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:baselineAligned="false"
+                    android:layout_marginTop="@dimen/spacing_md">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_margin="@dimen/spacing_xs"
+                        android:background="@drawable/bg_card"
+                        android:padding="@dimen/padding_card"
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:layout_width="@dimen/size_icon"
+                            android:layout_height="@dimen/size_icon"
+                            android:src="@drawable/ic_paso"
+                            android:layout_marginBottom="@dimen/spacing_md"
+                            app:tint="@color/fitbit_teal"
+                            android:contentDescription="@string/icono_de_pasos_desc"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/time"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_size_metric" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_margin="@dimen/spacing_xs"
+                        android:background="@drawable/bg_card"
+                        android:padding="@dimen/padding_card"
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:layout_width="@dimen/size_icon"
+                            android:layout_height="@dimen/size_icon"
+                            android:src="@drawable/ic_water"
+                            android:layout_marginBottom="@dimen/spacing_md"
+                            app:tint="@color/fitbit_teal"
+                            android:contentDescription="@string/icono_de_ubicacion_desc"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/litros"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_size_metric" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/contenedorDinamico"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/spacing_xxl" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <include layout="@layout/layout_bottom_navbar"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
