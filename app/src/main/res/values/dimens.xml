@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Spacing scale -->
+    <dimen name="spacing_xs">4dp</dimen>
+    <dimen name="spacing_sm">6dp</dimen>
+    <dimen name="spacing_md">8dp</dimen>
+    <dimen name="spacing_lg">16dp</dimen>
+    <dimen name="spacing_xl">24dp</dimen>
+    <dimen name="spacing_xxl">32dp</dimen>
+
+    <!-- Padding (specific, outside the scale) -->
+    <dimen name="padding_card">12dp</dimen>
+    <dimen name="padding_content">14dp</dimen>
+    <dimen name="padding_bottom_nav">80dp</dimen>
+
+    <!-- Text sizes -->
+    <dimen name="text_size_small">11sp</dimen>
+    <dimen name="text_size_caption">12sp</dimen>
+    <dimen name="text_size_label">13sp</dimen>
+    <dimen name="text_size_body">14sp</dimen>
+    <dimen name="text_size_subtitle">16sp</dimen>
+    <dimen name="text_size_title">18sp</dimen>
+    <dimen name="text_size_metric">20sp</dimen>
+    <dimen name="text_size_headline">22sp</dimen>
+    <dimen name="text_size_display">28sp</dimen>
+    <dimen name="text_size_emoji">32sp</dimen>
+    <dimen name="text_size_giant">48sp</dimen>
+
+    <!-- Component sizes -->
+    <dimen name="size_icon">24dp</dimen>
+    <dimen name="size_avatar">64dp</dimen>
+    <dimen name="size_fab">72dp</dimen>
+    <dimen name="size_steps_circle">200dp</dimen>
+    <dimen name="size_splash_logo">280dp</dimen>
+    <dimen name="height_action_button">60dp</dimen>
+
+    <!-- Radius -->
+    <dimen name="corner_radius">12dp</dimen>
+</resources>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:parentTag="androidx.coordinatorlayout.widget.CoordinatorLayout">
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        tools:ignore="BottomAppBar,CoordinatorLayout"
+        android:id="@+id/bottomAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_fab"
+        android:layout_gravity="bottom"
+        android:backgroundTint="@color/bar_bg"
+        android:fitsSystemWindows="false"
+        android:paddingTop="@dimen/padding_card"
+        app:shapeAppearanceOverlay="@style/ShapeAppearance.App.BottomAppBar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <LinearLayout
+                android:id="@+id/navHome"
+                style="@style/NavItem">
+                <ImageView
+                    android:id="@+id/iconHome"
+                    android:src="@drawable/ic_home"
+                    style="@style/NavIcon"/>
+                <TextView
+                    android:id="@+id/labelHome"
+                    android:text="@string/inicio"
+                    style="@style/NavLabel"/>
+            </LinearLayout>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <LinearLayout
+                android:id="@+id/navProfile"
+                style="@style/NavItem">
+                <ImageView
+                    android:id="@+id/iconProfile"
+                    android:src="@drawable/ic_person"
+                    style="@style/NavIcon"/>
+                <TextView
+                    android:id="@+id/labelProfile"
+                    android:text="@string/perfil"
+                    style="@style/NavLabel"/>
+            </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.bottomappbar.BottomAppBar>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/fabRun"
+        android:layout_width="@dimen/size_fab"
+        android:layout_height="@dimen/size_fab"
+        android:layout_marginBottom="@dimen/spacing_md"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        app:layout_anchor="@id/bottomAppBar"
+        app:layout_anchorGravity="center"
+        app:cardCornerRadius="32dp"
+        app:cardBackgroundColor="@color/neon_green"
+        app:cardElevation="6dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_sprint"
+            android:padding="@dimen/spacing_lg"
+            app:tint="@color/black"
+            android:contentDescription="@string/iniciar_carrera" />
+    </com.google.android.material.card.MaterialCardView>
+</merge>

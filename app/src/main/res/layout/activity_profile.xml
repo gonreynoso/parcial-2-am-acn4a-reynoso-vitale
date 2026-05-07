@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo_oscuro"
+    android:fitsSystemWindows="true">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/padding_bottom_nav"
+        android:clipToPadding="false"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_lg">
+
+            <!-- HEADER -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="@dimen/spacing_lg"
+                android:background="@color/gris_tarjeta">
+
+                <TextView
+                    android:id="@+id/tvAvatarInitial"
+                    android:layout_width="@dimen/size_avatar"
+                    android:layout_height="@dimen/size_avatar"
+                    android:background="@drawable/bg_avatar_circle"
+                    android:gravity="center"
+                    android:text="@string/profile_avatar_default"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_display"
+                    android:textStyle="bold"
+                    android:layout_marginEnd="@dimen/spacing_lg" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvUsername"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/profile_username"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_display"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvJoinDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/profile_join_date"
+                        android:textColor="@color/text_hint"
+                        android:textSize="@dimen/text_size_body"
+                        android:layout_marginTop="@dimen/spacing_xs" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnEditProfile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/padding_card"
+                        android:text="@string/profile_edit"
+                        android:textColor="@color/black"
+                        app:backgroundTint="@color/neon_green"
+                        app:cornerRadius="20dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- OBJETIVOS -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/spacing_xl">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/objectives_title"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_subtitle"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/objectives_see_all"
+                    android:textColor="@color/accent_green"
+                    android:textSize="@dimen/text_size_body" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/padding_card">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="@dimen/spacing_sm"
+                    android:background="@color/gris_tarjeta"
+                    android:orientation="vertical"
+                    android:padding="@dimen/padding_card">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/objective_sleep"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_body"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/objective_count_1"
+                        android:textColor="@color/text_hint"
+                        android:textSize="@dimen/text_size_caption"
+                        android:layout_marginTop="@dimen/spacing_xs" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/spacing_sm"
+                    android:layout_marginEnd="@dimen/spacing_sm"
+                    android:background="@color/gris_tarjeta"
+                    android:orientation="vertical"
+                    android:padding="@dimen/padding_card">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/objective_activity"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_body"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/objective_count_5"
+                        android:textColor="@color/text_hint"
+                        android:textSize="@dimen/text_size_caption"
+                        android:layout_marginTop="@dimen/spacing_xs" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/spacing_sm"
+                    android:background="@color/gris_tarjeta"
+                    android:orientation="vertical"
+                    android:padding="@dimen/padding_card">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/objective_health"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_body"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/objective_count_1"
+                        android:textColor="@color/text_hint"
+                        android:textSize="@dimen/text_size_caption"
+                        android:layout_marginTop="@dimen/spacing_xs" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- LOGROS -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/spacing_xl">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/achievements_title"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_subtitle"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/achievements_see_all"
+                    android:textColor="@color/accent_green"
+                    android:textSize="@dimen/text_size_body" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/padding_card">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="@dimen/spacing_sm"
+                    android:background="@color/gris_tarjeta"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="@dimen/spacing_lg">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🏃"
+                        android:textSize="@dimen/text_size_emoji" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/achievement_first_run"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_caption"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:layout_marginTop="@dimen/spacing_md" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/achievement_first_run_desc"
+                        android:textColor="@color/text_hint"
+                        android:textSize="@dimen/text_size_small"
+                        android:gravity="center"
+                        android:layout_marginTop="@dimen/spacing_xs" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/spacing_sm"
+                    android:background="@color/gris_tarjeta"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="@dimen/spacing_lg">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="⚡"
+                        android:textSize="@dimen/text_size_emoji" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/achievement_5k"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_caption"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:layout_marginTop="@dimen/spacing_md" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/achievement_5k_desc"
+                        android:textColor="@color/text_hint"
+                        android:textSize="@dimen/text_size_small"
+                        android:gravity="center"
+                        android:layout_marginTop="@dimen/spacing_xs" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/spacing_sm">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="@dimen/spacing_sm"
+                    android:background="@color/gris_tarjeta"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="@dimen/spacing_lg">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🔥"
+                        android:textSize="@dimen/text_size_emoji" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/achievement_streak"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_caption"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:layout_marginTop="@dimen/spacing_md" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/achievement_streak_desc"
+                        android:textColor="@color/text_hint"
+                        android:textSize="@dimen/text_size_small"
+                        android:gravity="center"
+                        android:layout_marginTop="@dimen/spacing_xs" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/spacing_sm"
+                    android:background="@color/gris_tarjeta"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="@dimen/spacing_lg">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🏆"
+                        android:textSize="@dimen/text_size_emoji" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/achievement_10k"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_caption"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:layout_marginTop="@dimen/spacing_md" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/achievement_10k_desc"
+                        android:textColor="@color/text_hint"
+                        android:textSize="@dimen/text_size_small"
+                        android:gravity="center"
+                        android:layout_marginTop="@dimen/spacing_xs" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- ESTADÍSTICAS -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xl"
+                android:text="@string/stats_title"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_subtitle"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/padding_card">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="@dimen/spacing_sm"
+                    android:background="@color/gris_tarjeta"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="@dimen/spacing_lg">
+
+                    <TextView
+                        android:id="@+id/tvTotalKm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/stats_value_km"
+                        android:textColor="@color/accent_green"
+                        android:textSize="@dimen/text_size_headline"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/stats_total_km"
+                        android:textColor="@color/text_hint"
+                        android:textSize="@dimen/text_size_caption"
+                        android:layout_marginTop="@dimen/spacing_xs" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/spacing_sm"
+                    android:layout_marginEnd="@dimen/spacing_sm"
+                    android:background="@color/gris_tarjeta"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="@dimen/spacing_lg">
+
+                    <TextView
+                        android:id="@+id/tvTotalRuns"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/stats_value_runs"
+                        android:textColor="@color/accent_green"
+                        android:textSize="@dimen/text_size_headline"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/stats_total_runs"
+                        android:textColor="@color/text_hint"
+                        android:textSize="@dimen/text_size_caption"
+                        android:layout_marginTop="@dimen/spacing_xs" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/spacing_sm"
+                    android:background="@color/gris_tarjeta"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="@dimen/spacing_lg">
+
+                    <TextView
+                        android:id="@+id/tvBestTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/stats_value_time"
+                        android:textColor="@color/accent_green"
+                        android:textSize="@dimen/text_size_headline"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/stats_best_time"
+                        android:textColor="@color/text_hint"
+                        android:textSize="@dimen/text_size_caption"
+                        android:layout_marginTop="@dimen/spacing_xs" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <include layout="@layout/layout_bottom_navbar"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
