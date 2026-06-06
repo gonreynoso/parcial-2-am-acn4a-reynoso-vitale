@@ -7,6 +7,8 @@ import android.os.Looper;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class SplashActivity extends AppCompatActivity {
 
     private static final long SPLASH_DURATION = 1500;
@@ -17,7 +19,9 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
-            startActivity(new Intent(this, MainActivity.class));
+            boolean isLoggedIn = FirebaseAuth.getInstance().getCurrentUser() != null;
+            Class<?> destination = isLoggedIn ? MainActivity.class : LoginActivity.class;
+            startActivity(new Intent(this, destination));
             finish();
         }, SPLASH_DURATION);
     }

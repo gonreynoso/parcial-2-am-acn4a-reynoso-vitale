@@ -10,6 +10,13 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
+
+import java.util.Collections;
+
 public class EditProfileActivity extends AppCompatActivity {
 
     private EditText inputUsername;
@@ -41,8 +48,26 @@ public class EditProfileActivity extends AppCompatActivity {
                 return;
             }
 
+            // Always persist locally first
             prefs.setUsername(nuevoNombre);
-            Toast.makeText(this, "Perfil actualizado", Toast.LENGTH_SHORT).show();
+
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            if (user != null) {
+                // Merge so we don't overwrite joinYear or other fields
+                FirebaseFirestore.getInstance()
+                        .collection("users")
+                        .document(user.getUid())
+                        .set(Collections.singletonMap("username", nuevoNombre), SetOptions.merge())
+                        .addOnSuccessListener(unused ->
+                                Toast.makeText(this, "Perfil actualizado", Toast.LENGTH_SHORT).show()
+                        )
+                        .addOnFailureListener(e ->
+                                Toast.makeText(this, "Perfil actualizado (sin conexión)", Toast.LENGTH_SHORT).show()
+                        );
+            } else {
+                Toast.makeText(this, "Perfil actualizado", Toast.LENGTH_SHORT).show();
+            }
+
             finish();
         });
     }

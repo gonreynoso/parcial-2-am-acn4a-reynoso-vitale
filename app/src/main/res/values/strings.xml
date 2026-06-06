@@ -66,4 +66,21 @@
     <string name="content_desc_back">Volver</string>
     <string name="profile_avatar_default">G</string>
 
+    <!-- Auth -->
+    <string name="login_tagline">Tu compañero de carrera</string>
+    <string name="auth_title_login">Bienvenido de vuelta</string>
+    <string name="auth_title_register">Crear cuenta</string>
+    <string name="auth_subtitle_login">Ingresá a tu cuenta para continuar</string>
+    <string name="auth_subtitle_register">Registrate para empezar a correr</string>
+    <string name="auth_google">Google</string>
+    <string name="auth_github">GitHub</string>
+    <string name="auth_or">or</string>
+    <string name="auth_forgot_password">¿Olvidaste tu contraseña?</string>
+    <string name="auth_reset_sent">Email de recuperación enviado</string>
+    <string name="auth_btn_login">Ingresar</string>
+    <string name="auth_btn_register">Registrarse</string>
+    <string name="auth_toggle_register">¿No tenés cuenta? Registrate</string>
+    <string name="auth_toggle_login">¿Ya tenés cuenta? Ingresá</string>
+    <string name="profile_sign_out">Cerrar sesión</string>
+
 </resources>
