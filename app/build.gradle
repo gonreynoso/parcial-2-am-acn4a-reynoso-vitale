@@ -37,6 +37,7 @@ dependencies {
     implementation platform(libs.firebase.bom)
     implementation 'com.google.firebase:firebase-auth'
     implementation 'com.google.firebase:firebase-firestore'
+    implementation 'com.google.android.gms:play-services-auth:21.2.0'
     implementation libs.activity.ktx
     implementation libs.appcompat
     implementation libs.material

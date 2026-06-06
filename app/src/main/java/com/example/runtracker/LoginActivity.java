@@ -8,10 +8,20 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
+import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Calendar;
@@ -25,6 +35,8 @@ public class LoginActivity extends AppCompatActivity {
     private TextView tvToggleMode, tvAuthError, tvAuthTitle, tvAuthSubtitle, tvForgotPassword;
 
     private FirebaseAuth auth;
+    private GoogleSignInClient googleSignInClient;
+    private ActivityResultLauncher<Intent> googleSignInLauncher;
     private boolean isLoginMode = true;
 
     @Override
@@ -33,6 +45,20 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         auth = FirebaseAuth.getInstance();
+
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+        googleSignInClient = GoogleSignIn.getClient(this, gso);
+
+        googleSignInLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(result.getData());
+                    handleGoogleSignInResult(task);
+                }
+        );
 
         inputEmail      = findViewById(R.id.inputEmail);
         inputPassword   = findViewById(R.id.inputPassword);
@@ -58,7 +84,7 @@ public class LoginActivity extends AppCompatActivity {
         tvForgotPassword.setOnClickListener(v -> handleForgotPassword());
 
         btnGoogle.setOnClickListener(v ->
-                Toast.makeText(this, "Google Sign-In próximamente", Toast.LENGTH_SHORT).show());
+                googleSignInLauncher.launch(googleSignInClient.getSignInIntent()));
         btnGithub.setOnClickListener(v ->
                 Toast.makeText(this, "GitHub Sign-In próximamente", Toast.LENGTH_SHORT).show());
     }
@@ -149,6 +175,30 @@ public class LoginActivity extends AppCompatActivity {
                     // Auth succeeded; navigate anyway and let profile load from Firestore later
                     navigateToMain();
                 });
+    }
+
+    private void handleGoogleSignInResult(Task<GoogleSignInAccount> completedTask) {
+        try {
+            GoogleSignInAccount account = completedTask.getResult(ApiException.class);
+            AuthCredential credential = GoogleAuthProvider.getCredential(account.getIdToken(), null);
+            auth.signInWithCredential(credential)
+                    .addOnSuccessListener(result -> {
+                        boolean isNewUser = result.getAdditionalUserInfo() != null
+                                && result.getAdditionalUserInfo().isNewUser();
+                        if (isNewUser) {
+                            String uid = result.getUser().getUid();
+                            String name = account.getDisplayName() != null
+                                    ? account.getDisplayName()
+                                    : account.getEmail().split("@")[0];
+                            createUserDocument(uid, name);
+                        } else {
+                            navigateToMain();
+                        }
+                    })
+                    .addOnFailureListener(e -> showError(e.getMessage()));
+        } catch (ApiException e) {
+            showError("Google Sign-In failed: " + e.getStatusCode());
+        }
     }
 
     private void navigateToMain() {
