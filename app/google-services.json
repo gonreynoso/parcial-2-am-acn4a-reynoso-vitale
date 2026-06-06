@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "956398641346",
+    "project_id": "sprint-53c1c",
+    "storage_bucket": "sprint-53c1c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:956398641346:android:5ca4c396c7196560dc5b5b",
+        "android_client_info": {
+          "package_name": "com.example.sprint"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "956398641346-hhm1atb1lqg7q5tfp4j6hh6mqii3l96p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sprint",
+            "certificate_hash": "1cdee0f52daf92afa3d8dddb587ecd138cd6b035"
+          }
+        },
+        {
+          "client_id": "956398641346-5rbf7ihmq3deb20d9ddj54fejoc51ivl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVJoBVcEaOa8QG9bdggj1aarh3Ado4ctY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "956398641346-5rbf7ihmq3deb20d9ddj54fejoc51ivl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
