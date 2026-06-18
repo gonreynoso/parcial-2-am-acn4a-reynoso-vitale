@@ -24,34 +24,57 @@
             android:orientation="vertical"
             android:padding="@dimen/spacing_lg">
 
-            <!-- Saludo -->
-            <TextView
-                android:id="@+id/txtSaludo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_size_headline"
-                android:textStyle="bold"
-                tools:text="Hola, Invitado 👋"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
-            <TextView
-                android:id="@+id/txtFrase"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:textColor="@color/gris_texto"
-                android:textSize="@dimen/text_size_label"
-                android:layout_marginTop="@dimen/spacing_xs"
-                tools:text="Hoy es un buen día para correr"/>
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/lblHoy"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/hoy"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_size_title"
-                android:layout_marginTop="20dp"
-                android:layout_gravity="center_horizontal"/>
+                <TextView
+                    android:id="@+id/txtSaludo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_headline"
+                    android:textStyle="bold"
+                    tools:text="Hola, Invitado 👋"/>
+
+                <TextView
+                    android:id="@+id/txtFrase"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/gris_texto"
+                    android:textSize="@dimen/text_size_label"
+                    android:layout_marginTop="@dimen/spacing_xs"
+                    android:text="¡Revisá el pronóstico antes de salir a entrenar! 🏃‍♂️⛅"/>
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/btnClima"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_clima"
+                app:tint="@color/fitbit_teal"
+                android:contentDescription="Ver Clima" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/lblHoy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hoy"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_title"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal"/>
 
             <!-- Círculo pasos -->
             <LinearLayout

@@ -30,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
     private static final int PASOS_CORRIENDO = 105;
     private static final int RACHA_DIAS = 3;
 
+    private View btnClima;
+
     private LinearLayout navHome, navProfile;
     private MaterialCardView fabRun;
 
@@ -49,6 +51,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //BTN CLIMA
+        btnClima = findViewById(R.id.btnClima);
+        btnClima.setOnClickListener(v -> {
+            // Viajamos a la nueva pantalla
+            Intent intent = new Intent(MainActivity.this, WeatherActivity.class);
+            startActivity(intent);
+        });
+
         // Dashboard
         txtPasos            = findViewById(R.id.txtPasos);
         txtObjetivoProgreso = findViewById(R.id.txtObjetivoProgreso);
@@ -56,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         contenedorDinamico  = findViewById(R.id.contenedorDinamico);
 
         loadSaludo();
-        loadFrase();
+        //loadFrase();
         loadRacha();
         actualizarObjetivo(PASOS_INICIALES);
 
@@ -73,11 +83,11 @@ public class MainActivity extends AppCompatActivity {
         txtSaludo.setText("Hola, " + prefs.getUsername() + " 👋");
     }
 
-    private void loadFrase() {
-        TextView txtFrase = findViewById(R.id.txtFrase);
-        String frase = FRASES[new Random().nextInt(FRASES.length)];
-        txtFrase.setText(frase);
-    }
+    //private void loadFrase() {
+      //  TextView txtFrase = findViewById(R.id.txtFrase);
+       // String frase = FRASES[new Random().nextInt(FRASES.length)];
+        //txtFrase.setText(frase);
+    //}
 
     private void loadRacha() {
         TextView txtRachaTitulo = findViewById(R.id.txtRachaTitulo);
@@ -125,6 +135,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
+
 
     private void agregarResumenHistorial() {
 

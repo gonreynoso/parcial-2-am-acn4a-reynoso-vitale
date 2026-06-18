@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="@color/fondo_oscuro"
+    android:padding="24dp"
+    tools:context=".WeatherActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Condiciones para Correr"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:id="@+id/txtCiudad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cargando ubicación..."
+        android:textColor="@color/gris_texto"
+        android:textSize="16sp"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:id="@+id/txtTemperatura"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="--°C"
+        android:textColor="@color/fitbit_teal"
+        android:textSize="80sp"
+        android:textStyle="bold"
+        android:layout_marginTop="30dp"/>
+
+    <TextView
+        android:id="@+id/txtDescripcionClima"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Buscando datos del radar..."
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:layout_marginBottom="40dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="30dp">
+
+        <TextView
+            android:id="@+id/txtHumedad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="💧 Humedad: --%"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginEnd="30dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/txtViento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="💨 Viento: -- km/h"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/bg_card"
+        android:padding="20dp"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Recomendación Deportiva"
+            android:textColor="@color/fitbit_teal"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/txtRecomendacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Analizando el clima para darte la mejor sugerencia deportiva hoy."
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:lineSpacingExtra="4dp"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnVolver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Volver al Dashboard"
+        android:backgroundTint="@color/fitbit_teal"
+        android:textColor="@color/fondo_oscuro"
+        android:layout_marginTop="40dp"/>
+
+</LinearLayout>
