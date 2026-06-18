@@ -38,6 +38,8 @@
     <string name="stats_value_km">0 km</string>
     <string name="stats_value_runs">0</string>
     <string name="stats_value_time">--:--</string>
+    <string name="runs_history_title">Mis carreras</string>
+    <string name="runs_history_empty">Todavía no registraste ninguna carrera</string>
 
     <!-- Navbar -->
     <string name="nav_home">Inicio</string>
