@@ -500,6 +500,23 @@
 
             </LinearLayout>
 
+            <!-- MIS CARRERAS -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xl"
+                android:text="@string/runs_history_title"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_subtitle"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/contenedorCarreras"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/padding_card" />
+
         </LinearLayout>
 
     </ScrollView>
