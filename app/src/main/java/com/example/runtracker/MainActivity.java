@@ -37,14 +37,16 @@ public class MainActivity extends AppCompatActivity {
     };
 
     private static final int OBJETIVO_PASOS = 10000;
-    private static final int PASOS_INICIALES = 97;
+    private static final int PASOS_INICIALES = 0;
     private static final int PASOS_CORRIENDO = 105;
     private static final int RACHA_DIAS = 3;
+    // Flat estimate (kcal per km); no user weight/age data exists yet for a personalized calculation.
+    private static final double CALORIAS_POR_KM = 60;
 
     private LinearLayout navHome, navProfile;
     private MaterialCardView fabRun;
 
-    private TextView txtPasos, txtObjetivoProgreso, txtDistancia;
+    private TextView txtPasos, txtObjetivoProgreso, txtDistancia, txtCalorias, txtDuracion;
     private ProgressBar progressObjetivo;
     private LinearLayout contenedorDinamico;
 
@@ -73,6 +75,8 @@ public class MainActivity extends AppCompatActivity {
         progressObjetivo    = findViewById(R.id.progressObjetivo);
         contenedorDinamico  = findViewById(R.id.contenedorDinamico);
         txtDistancia        = findViewById(R.id.txtDistancia);
+        txtCalorias         = findViewById(R.id.txtCalorias);
+        txtDuracion         = findViewById(R.id.txtDuracion);
 
         permisoUbicacionLauncher = registerForActivityResult(
                 new ActivityResultContracts.RequestPermission(),
@@ -85,9 +89,10 @@ public class MainActivity extends AppCompatActivity {
         loadSaludo();
         loadFrase();
         loadRacha();
+        txtPasos.setText(String.valueOf(contadorPasos));
         actualizarObjetivo(PASOS_INICIALES);
-
-
+        actualizarCalorias(0f);
+        actualizarDuracion(0);
 
         setupNavbar();
         NavbarHelper.markActiveTab(this, NavbarHelper.Tab.HOME);
@@ -161,6 +166,8 @@ public class MainActivity extends AppCompatActivity {
                         txtPasos.setText(String.valueOf(contadorPasos));
                         actualizarObjetivo(contadorPasos);
 
+                        long segundosTranscurridos = (System.currentTimeMillis() - inicioSesionMillis) / 1000;
+                        actualizarDuracion(segundosTranscurridos);
 
                         handler.postDelayed(this, 1000);
                 }
@@ -179,6 +186,7 @@ public class MainActivity extends AppCompatActivity {
 
             distanciaMetros = 0f;
             actualizarDistancia(distanciaMetros);
+            actualizarDuracion(0);
 
             contenedorDinamico.removeAllViews();
 
@@ -216,6 +224,23 @@ public class MainActivity extends AppCompatActivity {
     private void actualizarDistancia(float metros) {
         double km = metros / 1000;
         txtDistancia.setText(String.format("%.2f km", km));
+        actualizarCalorias(metros);
+    }
+
+    private void actualizarCalorias(float metros) {
+        double calorias = (metros / 1000.0) * CALORIAS_POR_KM;
+        txtCalorias.setText(String.format("%,d cal", Math.round(calorias)));
+    }
+
+    private void actualizarDuracion(long segundos) {
+        long horas = segundos / 3600;
+        long minutos = (segundos % 3600) / 60;
+        long segs = segundos % 60;
+        if (horas > 0) {
+            txtDuracion.setText(String.format("%d:%02d:%02d", horas, minutos, segs));
+        } else {
+            txtDuracion.setText(String.format("%02d:%02d", minutos, segs));
+        }
     }
 
     private void agregarResumenHistorial() {

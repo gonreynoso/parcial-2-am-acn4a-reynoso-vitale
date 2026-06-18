@@ -56,7 +56,7 @@
     <string name="streak_encouragement">¡Seguí así para mantenerla!</string>
     <string name="litros">1.2 L</string>
     <string name="time">7h 15m</string>
-    <string name="icono_de_pasos_desc">Icono de pasos</string>
+    <string name="icono_de_pasos_desc">Icono de duración de la carrera</string>
     <string name="icono_de_ubicacion_desc">icono_de_ubicacion_desc\n</string>
 
     <!-- Editar perfil -->

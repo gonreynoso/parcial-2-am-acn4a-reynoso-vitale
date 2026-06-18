@@ -256,6 +256,7 @@
                             android:contentDescription="@string/icono_de_pasos_desc"/>
 
                         <TextView
+                            android:id="@+id/txtDuracion"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/time"
