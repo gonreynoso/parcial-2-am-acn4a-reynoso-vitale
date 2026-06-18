@@ -4,7 +4,6 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.view.View;
 
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -143,13 +142,6 @@ public class MainActivity extends AppCompatActivity {
           estaCorriendo = true;
             pasosAlIniciarSesion = contadorPasos;
             inicioSesionMillis = System.currentTimeMillis();
-
-            TextView tvMensa = new TextView(this);
-            tvMensa.setText(R.string.conector_gps);
-            tvMensa.setTextColor(androidx.core.content.ContextCompat.getColor(this, R.color.white));
-            tvMensa.setGravity(View.TEXT_ALIGNMENT_CENTER);
-
-            contenedorDinamico.addView(tvMensa);
 
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                     == PackageManager.PERMISSION_GRANTED) {
