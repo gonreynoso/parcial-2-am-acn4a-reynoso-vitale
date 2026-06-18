@@ -1,6 +1,8 @@
 package com.example.runtracker;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 
@@ -8,7 +10,10 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.google.android.material.card.MaterialCardView;
 
@@ -33,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayout navHome, navProfile;
     private MaterialCardView fabRun;
 
-    private TextView txtPasos, txtObjetivoProgreso;
+    private TextView txtPasos, txtObjetivoProgreso, txtDistancia;
     private ProgressBar progressObjetivo;
     private LinearLayout contenedorDinamico;
 
@@ -42,6 +47,10 @@ public class MainActivity extends AppCompatActivity {
     private android.os.Handler handler = new android.os.Handler();
     private Runnable runnable;
     private int contadorPasos = PASOS_INICIALES;
+
+    private LocationTracker locationTracker = new LocationTracker();
+    private float distanciaMetros = 0f;
+    private ActivityResultLauncher<String> permisoUbicacionLauncher;
 
 
     @Override
@@ -54,6 +63,15 @@ public class MainActivity extends AppCompatActivity {
         txtObjetivoProgreso = findViewById(R.id.txtObjetivoProgreso);
         progressObjetivo    = findViewById(R.id.progressObjetivo);
         contenedorDinamico  = findViewById(R.id.contenedorDinamico);
+        txtDistancia        = findViewById(R.id.txtDistancia);
+
+        permisoUbicacionLauncher = registerForActivityResult(
+                new ActivityResultContracts.RequestPermission(),
+                concedido -> {
+                    if (concedido && estaCorriendo) {
+                        locationTracker.start(this, this::onDistanciaActualizada);
+                    }
+                });
 
         loadSaludo();
         loadFrase();
@@ -64,6 +82,23 @@ public class MainActivity extends AppCompatActivity {
 
         setupNavbar();
         NavbarHelper.markActiveTab(this, NavbarHelper.Tab.HOME);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (estaCorriendo) {
+            locationTracker.pause();
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (estaCorriendo && ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                == PackageManager.PERMISSION_GRANTED) {
+            locationTracker.start(this, this::onDistanciaActualizada);
+        }
     }
 
     private void loadSaludo() {
@@ -93,12 +128,19 @@ public class MainActivity extends AppCompatActivity {
         if (!estaCorriendo) {
           estaCorriendo = true;
 
-            //TextView tvMensa = new TextView(this);
-            //tvMensa.setText(R.string.conector_gps);
-            //tvMensa.setTextColor(androidx.core.content.ContextCompat.getColor(this, R.color.white));
-            //tvMensa.setGravity(View.TEXT_ALIGNMENT_CENTER);
+            TextView tvMensa = new TextView(this);
+            tvMensa.setText(R.string.conector_gps);
+            tvMensa.setTextColor(androidx.core.content.ContextCompat.getColor(this, R.color.white));
+            tvMensa.setGravity(View.TEXT_ALIGNMENT_CENTER);
 
-            //contenedorDinamico.addView(tvMensa);
+            contenedorDinamico.addView(tvMensa);
+
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                    == PackageManager.PERMISSION_GRANTED) {
+                locationTracker.start(this, this::onDistanciaActualizada);
+            } else {
+                permisoUbicacionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION);
+            }
 
             runnable = new Runnable() {
                 @Override
@@ -118,12 +160,28 @@ public class MainActivity extends AppCompatActivity {
             estaCorriendo = false;
             handler.removeCallbacks(runnable);
 
+            locationTracker.stop();
+            distanciaMetros = 0f;
+            actualizarDistancia(distanciaMetros);
+
             contenedorDinamico.removeAllViews();
 
             agregarResumenHistorial();
 
 
         }
+    }
+
+    private void onDistanciaActualizada(float metros) {
+        runOnUiThread(() -> {
+            distanciaMetros = metros;
+            actualizarDistancia(distanciaMetros);
+        });
+    }
+
+    private void actualizarDistancia(float metros) {
+        double km = metros / 1000;
+        txtDistancia.setText(String.format("%.2f km", km));
     }
 
     private void agregarResumenHistorial() {
