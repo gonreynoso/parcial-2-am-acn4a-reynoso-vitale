@@ -1,21 +1,16 @@
 package com.example.runtracker;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
-
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 
 import com.google.android.material.card.MaterialCardView;
 
+import java.util.Locale;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,87 +25,65 @@ public class MainActivity extends AppCompatActivity {
     };
 
     private static final int OBJETIVO_PASOS = 10000;
-    private static final int PASOS_INICIALES = 0;
-    private static final int PASOS_CORRIENDO = 105;
-    private static final int RACHA_DIAS = 3;
-    // Flat estimate (kcal per km); no user weight/age data exists yet for a personalized calculation.
+    private static final int MAX_RUNS = 200;
+    // Flat estimate (kcal per km). Weight is available now and could personalize this later.
     private static final double CALORIAS_POR_KM = 60;
+    // Average stride length to simulate steps from real distance.
+    private static final double STRIDE_METERS = 0.75;
+
+    private final RunRepository runRepository = new RunRepository();
 
     private LinearLayout navHome, navProfile;
     private MaterialCardView fabRun;
 
-    private TextView txtPasos, txtObjetivoProgreso, txtDistancia, txtCalorias, txtDuracion;
+    private TextView txtPasos, txtObjetivoProgreso, txtDistancia, txtCalorias, txtDuracion,
+            txtCarrerasHoy, txtRachaTitulo, txtSaludo;
     private ProgressBar progressObjetivo;
-    private LinearLayout contenedorDinamico;
-
-    private boolean estaCorriendo = false;
-
-    private android.os.Handler handler = new android.os.Handler();
-    private Runnable runnable;
-    private int contadorPasos = PASOS_INICIALES;
-
-    private LocationTracker locationTracker = new LocationTracker();
-    private RunRepository runRepository = new RunRepository();
-    private float distanciaMetros = 0f;
-    private ActivityResultLauncher<String> permisoUbicacionLauncher;
-
-    private int pasosAlIniciarSesion;
-    private long inicioSesionMillis;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Dashboard
+        txtSaludo           = findViewById(R.id.txtSaludo);
         txtPasos            = findViewById(R.id.txtPasos);
         txtObjetivoProgreso = findViewById(R.id.txtObjetivoProgreso);
         progressObjetivo    = findViewById(R.id.progressObjetivo);
-        contenedorDinamico  = findViewById(R.id.contenedorDinamico);
         txtDistancia        = findViewById(R.id.txtDistancia);
         txtCalorias         = findViewById(R.id.txtCalorias);
         txtDuracion         = findViewById(R.id.txtDuracion);
+        txtCarrerasHoy      = findViewById(R.id.txtCarrerasHoy);
+        txtRachaTitulo      = findViewById(R.id.txtRachaTitulo);
 
-        permisoUbicacionLauncher = registerForActivityResult(
-                new ActivityResultContracts.RequestPermission(),
-                concedido -> {
-                    if (concedido && estaCorriendo) {
-                        locationTracker.start(this, this::onDistanciaActualizada);
-                    }
-                });
-
-        loadSaludo();
         loadFrase();
-        loadRacha();
-        txtPasos.setText(String.valueOf(contadorPasos));
-        actualizarObjetivo(PASOS_INICIALES);
-        actualizarCalorias(0f);
-        actualizarDuracion(0);
-
         setupNavbar();
         NavbarHelper.markActiveTab(this, NavbarHelper.Tab.HOME);
     }
 
     @Override
-    protected void onPause() {
-        super.onPause();
-        if (estaCorriendo) {
-            locationTracker.pause();
-        }
-    }
-
-    @Override
     protected void onResume() {
         super.onResume();
-        if (estaCorriendo && ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-                == PackageManager.PERMISSION_GRANTED) {
-            locationTracker.start(this, this::onDistanciaActualizada);
-        }
+        loadSaludo();
+        cargarDashboard();
+    }
+
+    private void cargarDashboard() {
+        runRepository.loadRuns(MAX_RUNS, runs -> {
+            DashboardStats stats = DashboardStats.from(runs);
+
+            int pasos = (int) Math.round(stats.todayKm * 1000 / STRIDE_METERS);
+            txtPasos.setText(String.valueOf(pasos));
+            actualizarObjetivo(pasos);
+            txtDistancia.setText(String.format(Locale.getDefault(), "%.2f km", stats.todayKm));
+            txtCalorias.setText(String.format(Locale.getDefault(), "%,d cal",
+                    Math.round(stats.todayKm * CALORIAS_POR_KM)));
+            txtDuracion.setText(formatDuracion(stats.todayDurationSeconds));
+            txtCarrerasHoy.setText(String.valueOf(stats.todayRunCount));
+            txtRachaTitulo.setText("Racha de " + stats.streakDays + " días");
+        });
     }
 
     private void loadSaludo() {
-        TextView txtSaludo = findViewById(R.id.txtSaludo);
         UserPreferences prefs = new UserPreferences(this);
         prefs.initializeJoinYearIfNeeded();
         txtSaludo.setText("Hola, " + prefs.getUsername() + " 👋");
@@ -118,123 +91,22 @@ public class MainActivity extends AppCompatActivity {
 
     private void loadFrase() {
         TextView txtFrase = findViewById(R.id.txtFrase);
-        String frase = FRASES[new Random().nextInt(FRASES.length)];
-        txtFrase.setText(frase);
-    }
-
-    private void loadRacha() {
-        TextView txtRachaTitulo = findViewById(R.id.txtRachaTitulo);
-        txtRachaTitulo.setText("Racha de " + RACHA_DIAS + " días");
+        txtFrase.setText(FRASES[new Random().nextInt(FRASES.length)]);
     }
 
     private void actualizarObjetivo(int pasos) {
-        progressObjetivo.setProgress(pasos);
-        txtObjetivoProgreso.setText(String.format("%d / %,d", pasos, OBJETIVO_PASOS));
+        progressObjetivo.setProgress(Math.min(pasos, OBJETIVO_PASOS));
+        txtObjetivoProgreso.setText(String.format(Locale.getDefault(), "%,d / %,d", pasos, OBJETIVO_PASOS));
     }
 
-    private void gestionarInicio() {
-        if (!estaCorriendo) {
-          estaCorriendo = true;
-            pasosAlIniciarSesion = contadorPasos;
-            inicioSesionMillis = System.currentTimeMillis();
-
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-                    == PackageManager.PERMISSION_GRANTED) {
-                locationTracker.start(this, this::onDistanciaActualizada);
-            } else {
-                permisoUbicacionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION);
-            }
-
-            runnable = new Runnable() {
-                @Override
-                public void run() {
-                    if (contadorPasos < 10000) {
-                        contadorPasos++;
-                        txtPasos.setText(String.valueOf(contadorPasos));
-                        actualizarObjetivo(contadorPasos);
-
-                        long segundosTranscurridos = (System.currentTimeMillis() - inicioSesionMillis) / 1000;
-                        actualizarDuracion(segundosTranscurridos);
-
-                        handler.postDelayed(this, 1000);
-                }
-            }
-        };
-            handler.post(runnable);
-    } else {
-            estaCorriendo = false;
-            handler.removeCallbacks(runnable);
-
-            locationTracker.stop();
-
-            int pasosSesion = contadorPasos - pasosAlIniciarSesion;
-            long duracionSegundos = (System.currentTimeMillis() - inicioSesionMillis) / 1000;
-            runRepository.save(ActivityType.RUN.key, distanciaMetros / 1000, pasosSesion, duracionSegundos);
-
-            distanciaMetros = 0f;
-            actualizarDistancia(distanciaMetros);
-            actualizarDuracion(0);
-
-            contenedorDinamico.removeAllViews();
-
-            agregarResumenHistorial();
-
-
-        }
-    }
-
-    private void onDistanciaActualizada(float metros) {
-        runOnUiThread(() -> {
-            distanciaMetros = metros;
-            actualizarDistancia(distanciaMetros);
-        });
-    }
-
-    private void actualizarDistancia(float metros) {
-        double km = metros / 1000;
-        txtDistancia.setText(String.format("%.2f km", km));
-        actualizarCalorias(metros);
-    }
-
-    private void actualizarCalorias(float metros) {
-        double calorias = (metros / 1000.0) * CALORIAS_POR_KM;
-        txtCalorias.setText(String.format("%,d cal", Math.round(calorias)));
-    }
-
-    private void actualizarDuracion(long segundos) {
+    private String formatDuracion(long segundos) {
         long horas = segundos / 3600;
         long minutos = (segundos % 3600) / 60;
         long segs = segundos % 60;
         if (horas > 0) {
-            txtDuracion.setText(String.format("%d:%02d:%02d", horas, minutos, segs));
-        } else {
-            txtDuracion.setText(String.format("%02d:%02d", minutos, segs));
+            return String.format(Locale.getDefault(), "%d:%02d:%02d", horas, minutos, segs);
         }
-    }
-
-    private void agregarResumenHistorial() {
-
-        TextView tvHistorial = new TextView(this);
-
-
-        tvHistorial.setText("🏃 Sesión finalizada: " + contadorPasos + " pasos.");
-
-
-        tvHistorial.setTextColor(androidx.core.content.ContextCompat.getColor(this, R.color.white));
-
-
-        tvHistorial.setBackgroundResource(R.drawable.bg_card);
-        tvHistorial.setPadding(40, 40, 40, 40);
-
-
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT);
-        params.setMargins(0, 30, 0, 0);
-        tvHistorial.setLayoutParams(params);
-
-
-        contenedorDinamico.addView(tvHistorial);
+        return String.format(Locale.getDefault(), "%02d:%02d", minutos, segs);
     }
 
     private void setupNavbar() {
@@ -243,10 +115,7 @@ public class MainActivity extends AppCompatActivity {
         fabRun     = findViewById(R.id.fabRun);
 
         navHome.setOnClickListener(v -> {});
-        navProfile.setOnClickListener(v -> {
-            startActivity(new Intent(this, ProfileActivity.class));
-
-        });
+        navProfile.setOnClickListener(v -> startActivity(new Intent(this, ProfileActivity.class)));
         fabRun.setOnClickListener(v -> startActivity(new Intent(this, WorkoutSelectionActivity.class)));
     }
 }
