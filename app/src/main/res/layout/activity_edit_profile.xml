@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_dark"
@@ -20,12 +21,12 @@
             android:id="@+id/btnBack"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:src="@drawable/ic_home"
+            android:src="@drawable/ic_arrow_back"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:clickable="true"
             android:focusable="true"
             app:tint="@color/white"
-            android:contentDescription="@string/content_desc_back"/>
+            android:contentDescription="@string/content_desc_back" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -34,52 +35,240 @@
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:layout_marginStart="@dimen/padding_content"/>
+            android:layout_marginStart="@dimen/padding_content" />
     </LinearLayout>
 
-    <!-- Formulario -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/edit_profile_username_label"
-        android:textColor="@color/gris_texto"
-        android:textSize="@dimen/text_size_label"
-        android:layout_marginTop="@dimen/spacing_xxl"/>
-
-    <EditText
-        android:id="@+id/inputUsername"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spacing_md"
-        android:background="@drawable/bg_card"
-        android:padding="@dimen/padding_content"
-        android:textColor="@color/white"
-        android:textColorHint="@color/gris_texto"
-        android:hint="@string/edit_profile_username_hint"
-        android:inputType="textPersonName"
-        android:maxLength="30"
-        android:autofillHints="name"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingBottom="@dimen/spacing_lg">
 
-    <TextView
-        android:id="@+id/txtError"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/text_error"
-        android:textSize="@dimen/text_size_caption"
-        android:layout_marginTop="@dimen/spacing_sm"
-        android:visibility="gone"
-        tools:text="El nombre no puede estar vacío"
-        xmlns:tools="http://schemas.android.com/tools"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <!-- Botón guardar -->
-    <Button
-        android:id="@+id/btnGuardar"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:text="@string/edit_profile_save"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:backgroundTint="@color/neon_green"
-        android:layout_marginTop="@dimen/spacing_xl"/>
+            <!-- Avatar -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardAvatar"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/spacing_xl"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardCornerRadius="50dp"
+                app:cardBackgroundColor="@color/neon_green"
+                app:strokeColor="@color/neon_green"
+                app:strokeWidth="2dp">
+
+                <ImageView
+                    android:id="@+id/ivAvatar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_camera"
+                    android:padding="32dp"
+                    app:tint="@color/black"
+                    android:contentDescription="@string/edit_profile_change_photo" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/btnCambiarFoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/spacing_md"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="@dimen/spacing_xs"
+                android:text="@string/edit_profile_change_photo"
+                android:textColor="@color/accent_green"
+                android:textSize="@dimen/text_size_body" />
+
+            <!-- Nombre -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/edit_profile_username_label"
+                android:textColor="@color/gris_texto"
+                android:textSize="@dimen/text_size_label"
+                android:layout_marginTop="@dimen/spacing_xl" />
+
+            <EditText
+                android:id="@+id/inputUsername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_md"
+                android:background="@drawable/bg_card"
+                android:padding="@dimen/padding_content"
+                android:textColor="@color/white"
+                android:textColorHint="@color/gris_texto"
+                android:hint="@string/edit_profile_username_hint"
+                android:inputType="textPersonName"
+                android:maxLength="30"
+                android:autofillHints="name" />
+
+            <TextView
+                android:id="@+id/txtError"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_error"
+                android:textSize="@dimen/text_size_caption"
+                android:layout_marginTop="@dimen/spacing_sm"
+                android:visibility="gone"
+                tools:text="El nombre no puede estar vacío" />
+
+            <!-- Peso y altura -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/spacing_lg">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="@dimen/spacing_sm"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/edit_profile_weight_label"
+                        android:textColor="@color/gris_texto"
+                        android:textSize="@dimen/text_size_label" />
+
+                    <EditText
+                        android:id="@+id/inputWeight"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_md"
+                        android:background="@drawable/bg_card"
+                        android:padding="@dimen/padding_content"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/gris_texto"
+                        android:hint="@string/edit_profile_weight_hint"
+                        android:inputType="numberDecimal"
+                        android:maxLength="5" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/spacing_sm"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/edit_profile_height_label"
+                        android:textColor="@color/gris_texto"
+                        android:textSize="@dimen/text_size_label" />
+
+                    <EditText
+                        android:id="@+id/inputHeight"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_md"
+                        android:background="@drawable/bg_card"
+                        android:padding="@dimen/padding_content"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/gris_texto"
+                        android:hint="@string/edit_profile_height_hint"
+                        android:inputType="number"
+                        android:maxLength="3" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Edad -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/edit_profile_age_label"
+                android:textColor="@color/gris_texto"
+                android:textSize="@dimen/text_size_label"
+                android:layout_marginTop="@dimen/spacing_lg" />
+
+            <EditText
+                android:id="@+id/inputAge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_md"
+                android:background="@drawable/bg_card"
+                android:padding="@dimen/padding_content"
+                android:textColor="@color/white"
+                android:textColorHint="@color/gris_texto"
+                android:hint="@string/edit_profile_age_hint"
+                android:inputType="number"
+                android:maxLength="3" />
+
+            <!-- Género -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/edit_profile_gender_label"
+                android:textColor="@color/gris_texto"
+                android:textSize="@dimen/text_size_label"
+                android:layout_marginTop="@dimen/spacing_lg" />
+
+            <RadioGroup
+                android:id="@+id/groupGender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_md"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radioMale"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:buttonTint="@color/accent_green"
+                    android:text="@string/gender_male"
+                    android:textColor="@color/white" />
+
+                <RadioButton
+                    android:id="@+id/radioFemale"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:buttonTint="@color/accent_green"
+                    android:text="@string/gender_female"
+                    android:textColor="@color/white" />
+
+                <RadioButton
+                    android:id="@+id/radioOther"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:buttonTint="@color/accent_green"
+                    android:text="@string/gender_other"
+                    android:textColor="@color/white" />
+
+            </RadioGroup>
+
+            <!-- Botón guardar -->
+            <Button
+                android:id="@+id/btnGuardar"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="@string/edit_profile_save"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:backgroundTint="@color/neon_green"
+                android:layout_marginTop="@dimen/spacing_xl" />
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

@@ -70,6 +70,18 @@
     <string name="edit_profile_username_label">Nombre de usuario</string>
     <string name="edit_profile_username_hint">Ej: Gonzalo</string>
     <string name="edit_profile_save">Guardar</string>
+    <string name="edit_profile_change_photo">Cambiar foto</string>
+    <string name="edit_profile_weight_label">Peso (kg)</string>
+    <string name="edit_profile_weight_hint">Ej: 72.5</string>
+    <string name="edit_profile_height_label">Altura (cm)</string>
+    <string name="edit_profile_height_hint">Ej: 178</string>
+    <string name="edit_profile_age_label">Edad</string>
+    <string name="edit_profile_age_hint">Ej: 28</string>
+    <string name="edit_profile_gender_label">Género</string>
+    <string name="edit_profile_photo_error">No se pudo cargar la imagen</string>
+    <string name="gender_male">Masculino</string>
+    <string name="gender_female">Femenino</string>
+    <string name="gender_other">Otro</string>
 
     <!-- General -->
     <string name="content_desc_back">Volver</string>
@@ -91,6 +103,12 @@
     <string name="auth_toggle_register">¿No tenés cuenta? Registrate</string>
     <string name="auth_toggle_login">¿Ya tenés cuenta? Ingresá</string>
     <string name="profile_sign_out">Cerrar sesión</string>
+    <string name="profile_weight">Peso</string>
+    <string name="profile_height">Altura</string>
+    <string name="profile_imc">IMC</string>
+    <string name="health_empty">--</string>
+    <string name="profile_weight_value">%1$s kg</string>
+    <string name="profile_height_value">%1$d cm</string>
 
     <!-- Selección de entrenamiento -->
     <string name="busca_entrenamientos">Busca entrenamientos</string>
