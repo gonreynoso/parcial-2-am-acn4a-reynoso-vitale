@@ -65,6 +65,11 @@
     <string name="time">7h 15m</string>
     <string name="icono_de_pasos_desc">Icono de duración de la carrera</string>
     <string name="icono_de_ubicacion_desc">icono_de_ubicacion_desc\n</string>
+    <string name="carreras_hoy_desc">Carreras de hoy</string>
+    <string name="metric_distance">Distancia</string>
+    <string name="metric_calories">Calorías</string>
+    <string name="metric_time">Tiempo</string>
+    <string name="metric_runs">Carreras</string>
 
     <!-- Editar perfil -->
     <string name="edit_profile_username_label">Nombre de usuario</string>
