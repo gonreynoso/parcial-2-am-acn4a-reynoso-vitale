@@ -11,7 +11,7 @@
         android:layout_height="@dimen/size_fab"
         android:layout_gravity="bottom"
         android:backgroundTint="@color/bar_bg"
-        android:fitsSystemWindows="false"
+        android:fitsSystemWindows="true"
         android:paddingTop="@dimen/padding_card"
         app:shapeAppearanceOverlay="@style/ShapeAppearance.App.BottomAppBar">
 
@@ -23,10 +23,14 @@
 
             <LinearLayout
                 android:id="@+id/navHome"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
                 style="@style/NavItem">
                 <ImageView
                     android:id="@+id/iconHome"
                     android:src="@drawable/ic_home"
+                    android:contentDescription="@string/inicio"
                     style="@style/NavIcon"/>
                 <TextView
                     android:id="@+id/labelHome"
@@ -41,10 +45,14 @@
 
             <LinearLayout
                 android:id="@+id/navProfile"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
                 style="@style/NavItem">
                 <ImageView
                     android:id="@+id/iconProfile"
                     android:src="@drawable/ic_person"
+                    android:contentDescription="@string/perfil"
                     style="@style/NavIcon"/>
                 <TextView
                     android:id="@+id/labelProfile"

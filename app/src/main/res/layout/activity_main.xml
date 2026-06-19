@@ -203,6 +203,13 @@
                             android:text="@string/txtKm"
                             android:textColor="@color/white"
                             android:textSize="@dimen/text_size_metric" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/metric_distance"
+                            android:textColor="@color/text_hint"
+                            android:textSize="@dimen/text_size_caption"
+                            android:layout_marginTop="@dimen/spacing_xs" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -228,6 +235,13 @@
                             android:text="@string/txtCal"
                             android:textColor="@color/white"
                             android:textSize="@dimen/text_size_metric" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/metric_calories"
+                            android:textColor="@color/text_hint"
+                            android:textSize="@dimen/text_size_caption"
+                            android:layout_marginTop="@dimen/spacing_xs" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -250,17 +264,25 @@
                         <ImageView
                             android:layout_width="@dimen/size_icon"
                             android:layout_height="@dimen/size_icon"
-                            android:src="@drawable/ic_paso"
+                            android:src="@drawable/ic_timer"
                             android:layout_marginBottom="@dimen/spacing_md"
                             app:tint="@color/fitbit_teal"
-                            android:contentDescription="@string/icono_de_pasos_desc"/>
+                            android:contentDescription="@string/metric_time"/>
 
                         <TextView
+                            android:id="@+id/txtDuracion"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/time"
                             android:textColor="@color/white"
                             android:textSize="@dimen/text_size_metric" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/metric_time"
+                            android:textColor="@color/text_hint"
+                            android:textSize="@dimen/text_size_caption"
+                            android:layout_marginTop="@dimen/spacing_xs" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -275,16 +297,24 @@
                         <ImageView
                             android:layout_width="@dimen/size_icon"
                             android:layout_height="@dimen/size_icon"
-                            android:src="@drawable/ic_water"
+                            android:src="@drawable/ic_directions_run"
                             android:layout_marginBottom="@dimen/spacing_md"
                             app:tint="@color/fitbit_teal"
-                            android:contentDescription="@string/icono_de_ubicacion_desc"/>
+                            android:contentDescription="@string/carreras_hoy_desc"/>
+                        <TextView
+                            android:id="@+id/txtCarrerasHoy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/stats_value_runs"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_size_metric" />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/litros"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/text_size_metric" />
+                            android:text="@string/metric_runs"
+                            android:textColor="@color/text_hint"
+                            android:textSize="@dimen/text_size_caption"
+                            android:layout_marginTop="@dimen/spacing_xs" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
