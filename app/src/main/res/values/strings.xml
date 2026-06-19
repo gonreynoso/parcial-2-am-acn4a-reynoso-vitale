@@ -119,7 +119,7 @@
     <string name="busca_entrenamientos">Busca entrenamientos</string>
     <string name="entrenamientos_personalizados">Entrenamientos personalizados</string>
     <string name="crear_entrenamiento">+ Crear entrenamiento</string>
-    <string name="monitorea_entrenamiento_telefono">Monitorea el entrenamiento en tu teléfono</string>
+    <string name="actividades_disponibles_titulo">Iniciar una actividad</string>
     <string name="actividad_senderismo">Senderismo</string>
     <string name="actividad_bicicleta">Andar en bicicleta</string>
     <string name="actividad_caminar">Caminar</string>

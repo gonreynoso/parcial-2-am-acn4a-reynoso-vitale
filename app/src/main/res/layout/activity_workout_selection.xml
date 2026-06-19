@@ -73,7 +73,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_xl"
-            android:text="@string/monitorea_entrenamiento_telefono"
+            android:text="@string/actividades_disponibles_titulo"
             android:textColor="@color/white"
             android:textSize="@dimen/text_size_subtitle"
             android:textStyle="bold" />
