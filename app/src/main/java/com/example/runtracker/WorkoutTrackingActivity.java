@@ -16,7 +16,7 @@ import java.util.Random;
 public class WorkoutTrackingActivity extends AppCompatActivity {
 
     private ImageView ivActivityIcon;
-    private TextView tvActivityName, tvDuracion, tvDistancia, tvRitmo;
+    private TextView tvActivityName, tvDuracion, tvDistancia, tvRitmo, tvMeta;
     private MaterialButton btnPausa, btnDetener, btnReanudar;
     private LinearLayout contenedorPausado;
 
@@ -38,6 +38,7 @@ public class WorkoutTrackingActivity extends AppCompatActivity {
         tvDuracion = findViewById(R.id.tvDuracion);
         tvDistancia = findViewById(R.id.tvDistancia);
         tvRitmo = findViewById(R.id.tvRitmo);
+        tvMeta = findViewById(R.id.tvMeta);
         btnPausa = findViewById(R.id.btnPausa);
         contenedorPausado = findViewById(R.id.contenedorPausado);
         btnDetener = findViewById(R.id.btnDetener);
@@ -46,12 +47,29 @@ public class WorkoutTrackingActivity extends AppCompatActivity {
         activityType = resolveActivityType();
         tvActivityName.setText(activityType.nameRes);
         ivActivityIcon.setImageResource(activityType.iconRes);
+        mostrarMeta();
 
         btnPausa.setOnClickListener(v -> pausar());
         btnReanudar.setOnClickListener(v -> reanudar());
         btnDetener.setOnClickListener(v -> detener());
 
         stopwatch.start(this::onTick);
+    }
+
+    private void mostrarMeta() {
+        String goalType = getIntent().getStringExtra(WorkoutSelectionActivity.EXTRA_GOAL_TYPE);
+        double goalValue = getIntent().getDoubleExtra(WorkoutSelectionActivity.EXTRA_GOAL_VALUE, 0);
+        if (goalType == null || goalValue <= 0) {
+            tvMeta.setVisibility(View.GONE);
+            return;
+        }
+        String value = goalValue == Math.rint(goalValue)
+                ? String.valueOf((int) goalValue)
+                : String.format(Locale.getDefault(), "%.1f", goalValue);
+        tvMeta.setText(Workout.GOAL_TIME.equals(goalType)
+                ? getString(R.string.workout_goal_time, value)
+                : getString(R.string.workout_goal_distance, value));
+        tvMeta.setVisibility(View.VISIBLE);
     }
 
     private ActivityType resolveActivityType() {
