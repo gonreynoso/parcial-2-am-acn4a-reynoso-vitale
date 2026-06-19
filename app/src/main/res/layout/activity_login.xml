@@ -7,20 +7,20 @@
     android:background="@color/fondo_oscuro"
     android:fillViewport="true">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="32dp"
-        android:gravity="center_vertical">
+        android:padding="32dp">
 
         <!-- Brand row: logo circle + app name -->
         <LinearLayout
+            android:id="@+id/brandRow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_vertical"
-            android:layout_marginBottom="36dp">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
             <TextView
                 android:layout_width="32dp"
@@ -48,30 +48,38 @@
             android:id="@+id/tvAuthTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
             android:text="@string/auth_title_login"
             android:textColor="@color/white"
             android:textSize="22sp"
             android:textStyle="bold"
-            android:layout_marginBottom="6dp" />
+            app:layout_constraintTop_toBottomOf="@id/brandRow"
+            app:layout_constraintStart_toStartOf="parent" />
 
-        <!-- Toggle link (subtitle position, left-aligned) -->
+        <!-- Toggle link -->
         <TextView
             android:id="@+id/tvToggleMode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
             android:text="@string/auth_toggle_register"
             android:textColor="@color/gris_texto"
             android:textSize="14sp"
-            android:layout_marginBottom="28dp"
             android:clickable="true"
-            android:focusable="true" />
+            android:focusable="true"
+            app:layout_constraintTop_toBottomOf="@id/tvAuthTitle"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <!-- Social buttons -->
         <LinearLayout
-            android:layout_width="match_parent"
+            android:id="@+id/socialRow"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
             android:orientation="horizontal"
-            android:layout_marginBottom="20dp">
+            app:layout_constraintTop_toBottomOf="@id/tvToggleMode"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnGithub"
@@ -103,11 +111,15 @@
 
         <!-- OR separator -->
         <LinearLayout
-            android:layout_width="match_parent"
+            android:id="@+id/orRow"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:orientation="horizontal"
             android:gravity="center_vertical"
-            android:layout_marginBottom="20dp">
+            app:layout_constraintTop_toBottomOf="@id/socialRow"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
             <View
                 android:layout_width="0dp"
@@ -136,24 +148,30 @@
 
         <!-- Email label -->
         <TextView
+            android:id="@+id/emailLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:text="Email"
             android:textColor="@color/white"
             android:textSize="14sp"
-            android:layout_marginBottom="6dp" />
+            app:layout_constraintTop_toBottomOf="@id/orRow"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <!-- Email input -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilEmail"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:layout_marginTop="6dp"
             app:hintEnabled="false"
             app:boxStrokeColor="#3A3A3A"
             app:boxStrokeWidth="1dp"
-            app:boxBackgroundColor="#111111">
+            app:boxBackgroundColor="#111111"
+            app:layout_constraintTop_toBottomOf="@id/emailLabel"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/inputEmail"
@@ -168,25 +186,31 @@
 
         <!-- Password label -->
         <TextView
+            android:id="@+id/passwordLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:text="Contraseña"
             android:textColor="@color/white"
             android:textSize="14sp"
-            android:layout_marginBottom="6dp" />
+            app:layout_constraintTop_toBottomOf="@id/tilEmail"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <!-- Password input -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilPassword"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
+            android:layout_marginTop="6dp"
             app:hintEnabled="false"
             app:boxStrokeColor="#3A3A3A"
             app:boxStrokeWidth="1dp"
             app:boxBackgroundColor="#111111"
-            app:endIconMode="password_toggle">
+            app:endIconMode="password_toggle"
+            app:layout_constraintTop_toBottomOf="@id/passwordLabel"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/inputPassword"
@@ -202,43 +226,53 @@
         <!-- Error -->
         <TextView
             android:id="@+id/tvAuthError"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
             android:textColor="@color/text_error"
             android:textSize="13sp"
-            android:visibility="gone" />
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/tilPassword"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <!-- Submit button -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnAuth"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="52dp"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="16dp"
             android:text="@string/auth_btn_login"
             android:textColor="@color/black"
             android:textSize="15sp"
             app:backgroundTint="@color/neon_green"
-            app:cornerRadius="8dp" />
+            app:cornerRadius="8dp"
+            app:layout_constraintTop_toBottomOf="@id/tvAuthError"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- Forgot password (below button, only in login mode) -->
+        <!-- Forgot password -->
         <TextView
             android:id="@+id/tvForgotPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:text="@string/auth_forgot_password"
             android:textColor="@color/gris_texto"
             android:textSize="13sp"
             android:clickable="true"
-            android:focusable="true" />
+            android:focusable="true"
+            app:layout_constraintTop_toBottomOf="@id/btnAuth"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <!-- Hidden: kept for Java compatibility -->
         <TextView
             android:id="@+id/tvAuthSubtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="gone" />
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/tvForgotPassword"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
