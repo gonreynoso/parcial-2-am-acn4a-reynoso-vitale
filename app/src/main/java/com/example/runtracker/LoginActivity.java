@@ -96,11 +96,11 @@ public class LoginActivity extends AppCompatActivity {
         String password = inputPassword.getText().toString().trim();
 
         if (TextUtils.isEmpty(email)) {
-            showError("Email is required");
+            showError("Correo electrónico requerido");
             return;
         }
         if (TextUtils.isEmpty(password)) {
-            showError("Password is required");
+            showError("Contraseña requerida");
             return;
         }
 
