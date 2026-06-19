@@ -210,29 +210,14 @@
             </LinearLayout>
 
             <!-- LOGROS -->
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="@dimen/spacing_xl">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/achievements_title"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/text_size_subtitle"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/achievements_see_all"
-                    android:textColor="@color/accent_green"
-                    android:textSize="@dimen/text_size_body" />
-
-            </LinearLayout>
+                android:layout_marginTop="@dimen/spacing_xl"
+                android:text="@string/achievements_title"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_subtitle"
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
