@@ -36,6 +36,12 @@
         <activity
             android:name=".ProfileActivity"
             android:exported="false" />
+        <activity
+            android:name=".WorkoutSelectionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".WorkoutTrackingActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

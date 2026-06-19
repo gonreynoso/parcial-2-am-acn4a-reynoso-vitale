@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo_oscuro"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/spacing_lg"
+        android:paddingTop="@dimen/spacing_lg"
+        android:paddingBottom="@dimen/spacing_sm">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:id="@+id/ivActivityIcon"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/ic_directions_run"
+                    app:tint="@color/white" />
+
+                <TextView
+                    android:id="@+id/tvActivityName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/padding_content"
+                    android:text="@string/nav_run"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_subtitle"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_volume_up"
+                app:tint="@color/white" />
+
+        </RelativeLayout>
+
+        <FrameLayout
+            android:id="@+id/mapPlaceholder"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:layout_marginTop="@dimen/spacing_lg"
+            android:background="@drawable/bg_map_placeholder">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_map_grid" />
+
+            <ImageView
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_location"
+                app:tint="@color/white" />
+
+        </FrameLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/duracion_label"
+                android:textColor="@color/text_hint"
+                android:textSize="@dimen/text_size_caption" />
+
+            <TextView
+                android:id="@+id/tvDuracion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xs"
+                android:text="00:00"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_workout_stat"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_lg"
+                android:text="@string/distancia_km_label"
+                android:textColor="@color/text_hint"
+                android:textSize="@dimen/text_size_workout_distance_label" />
+
+            <TextView
+                android:id="@+id/tvDistancia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xs"
+                android:text="0"
+                android:textColor="@color/accent_green"
+                android:textSize="@dimen/text_size_workout_distance"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_lg"
+                android:text="@string/ritmo_label"
+                android:textColor="@color/text_hint"
+                android:textSize="@dimen/text_size_caption" />
+
+            <TextView
+                android:id="@+id/tvRitmo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xs"
+                android:text="--"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_display"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPausa"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_workout_button"
+            app:backgroundTint="@color/gris_tarjeta"
+            app:cornerRadius="30dp"
+            app:icon="@drawable/ic_pause"
+            app:iconTint="@color/white"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp" />
+
+        <LinearLayout
+            android:id="@+id/contenedorPausado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_xl"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDetener"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/height_workout_button"
+                android:layout_weight="1"
+                app:backgroundTint="@color/text_error"
+                app:cornerRadius="30dp"
+                app:icon="@drawable/ic_stop"
+                app:iconTint="@color/white"
+                app:iconGravity="textStart"
+                app:iconPadding="0dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnReanudar"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/height_workout_button"
+                android:layout_weight="1"
+                android:layout_marginStart="@dimen/spacing_md"
+                app:backgroundTint="@color/accent_green"
+                app:cornerRadius="30dp"
+                app:icon="@drawable/ic_play_arrow"
+                app:iconTint="@color/black"
+                app:iconGravity="textStart"
+                app:iconPadding="0dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
