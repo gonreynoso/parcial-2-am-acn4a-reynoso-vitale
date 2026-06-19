@@ -11,7 +11,7 @@
         android:layout_height="@dimen/size_fab"
         android:layout_gravity="bottom"
         android:backgroundTint="@color/bar_bg"
-        android:fitsSystemWindows="false"
+        android:fitsSystemWindows="true"
         android:paddingTop="@dimen/padding_card"
         app:shapeAppearanceOverlay="@style/ShapeAppearance.App.BottomAppBar">
 
