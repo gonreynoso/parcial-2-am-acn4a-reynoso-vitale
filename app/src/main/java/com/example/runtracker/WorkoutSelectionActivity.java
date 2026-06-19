@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class WorkoutSelectionActivity extends AppCompatActivity {
 
+    static final String EXTRA_ACTIVITY_TYPE = "activityType";
+
     private ImageView btnBack;
     private TextView btnCrearEntrenamiento;
     private LinearLayout btnCorrer, btnSenderismo, btnBicicleta, btnCaminar;
@@ -32,16 +34,15 @@ public class WorkoutSelectionActivity extends AppCompatActivity {
         btnCrearEntrenamiento.setOnClickListener(v ->
                 Toast.makeText(this, "Próximamente", Toast.LENGTH_SHORT).show());
 
-        btnCorrer.setOnClickListener(v -> abrirTracking(getString(R.string.nav_run), R.drawable.ic_directions_run));
-        btnSenderismo.setOnClickListener(v -> abrirTracking(getString(R.string.actividad_senderismo), R.drawable.ic_directions_walk));
-        btnBicicleta.setOnClickListener(v -> abrirTracking(getString(R.string.actividad_bicicleta), R.drawable.ic_directions_bike));
-        btnCaminar.setOnClickListener(v -> abrirTracking(getString(R.string.actividad_caminar), R.drawable.ic_directions_walk));
+        btnCorrer.setOnClickListener(v -> abrirTracking(ActivityType.RUN));
+        btnSenderismo.setOnClickListener(v -> abrirTracking(ActivityType.HIKE));
+        btnBicicleta.setOnClickListener(v -> abrirTracking(ActivityType.BIKE));
+        btnCaminar.setOnClickListener(v -> abrirTracking(ActivityType.WALK));
     }
 
-    private void abrirTracking(String nombre, int icono) {
+    private void abrirTracking(ActivityType type) {
         Intent intent = new Intent(this, WorkoutTrackingActivity.class);
-        intent.putExtra("nombre", nombre);
-        intent.putExtra("icono", icono);
+        intent.putExtra(EXTRA_ACTIVITY_TYPE, type.name());
         startActivity(intent);
     }
 }
