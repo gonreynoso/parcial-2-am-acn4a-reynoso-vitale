@@ -34,12 +34,19 @@
     <string name="stats_title">Estadísticas</string>
     <string name="stats_total_km">Km totales</string>
     <string name="stats_total_runs">Carreras</string>
-    <string name="stats_best_time">Mejor tiempo</string>
+    <string name="stats_best_time">Mejor ritmo</string>
     <string name="stats_value_km">0 km</string>
     <string name="stats_value_runs">0</string>
     <string name="stats_value_time">--:--</string>
     <string name="runs_history_title">Mis carreras</string>
     <string name="runs_history_empty">Todavía no registraste ninguna carrera</string>
+    <string name="runs_see_all">Ver todo</string>
+    <string name="runs_delete_all">Borrar todas mis carreras</string>
+    <string name="runs_delete_confirm_title">Borrar carreras</string>
+    <string name="runs_delete_confirm_message">Se eliminarán todas tus carreras. Esta acción no se puede deshacer.</string>
+    <string name="runs_delete_confirm_ok">Borrar</string>
+    <string name="runs_deleted">Carreras eliminadas</string>
+    <string name="cancelar">Cancelar</string>
 
     <!-- Navbar -->
     <string name="nav_home">Inicio</string>
