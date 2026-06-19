@@ -45,6 +45,9 @@
         <activity
             android:name=".MyRunsActivity"
             android:exported="false" />
+        <activity
+            android:name=".CreateWorkoutActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
