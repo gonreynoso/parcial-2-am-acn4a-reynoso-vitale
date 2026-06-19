@@ -15,13 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import com.google.android.material.card.MaterialCardView;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.FieldValue;
-import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
@@ -56,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
     private int contadorPasos = PASOS_INICIALES;
 
     private LocationTracker locationTracker = new LocationTracker();
+    private RunRepository runRepository = new RunRepository();
     private float distanciaMetros = 0f;
     private ActivityResultLauncher<String> permisoUbicacionLauncher;
 
@@ -174,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
 
             int pasosSesion = contadorPasos - pasosAlIniciarSesion;
             long duracionSegundos = (System.currentTimeMillis() - inicioSesionMillis) / 1000;
-            guardarCarrera(distanciaMetros / 1000, pasosSesion, duracionSegundos);
+            runRepository.save(ActivityType.RUN.key, distanciaMetros / 1000, pasosSesion, duracionSegundos);
 
             distanciaMetros = 0f;
             actualizarDistancia(distanciaMetros);
@@ -186,24 +181,6 @@ public class MainActivity extends AppCompatActivity {
 
 
         }
-    }
-
-    private void guardarCarrera(double distanciaKm, int pasos, long duracionSegundos) {
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user == null) return;
-        if (pasos <= 0 && distanciaKm <= 0) return;
-
-        Map<String, Object> carrera = new HashMap<>();
-        carrera.put("distanciaKm", distanciaKm);
-        carrera.put("pasos", pasos);
-        carrera.put("duracionSegundos", duracionSegundos);
-        carrera.put("timestamp", FieldValue.serverTimestamp());
-
-        FirebaseFirestore.getInstance()
-                .collection("users")
-                .document(user.getUid())
-                .collection("runs")
-                .add(carrera);
     }
 
     private void onDistanciaActualizada(float metros) {

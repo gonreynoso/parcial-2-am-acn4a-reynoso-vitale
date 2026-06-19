@@ -96,5 +96,7 @@
     <string name="duracion_label">Duración</string>
     <string name="distancia_km_label">Distancia (km)</string>
     <string name="ritmo_label">Ritmo</string>
+    <string name="ritmo_formato">%1$s /km</string>
+    <string name="permiso_ubicacion_denegado">Sin permiso de ubicación no podemos medir la distancia</string>
 
 </resources>
