@@ -270,6 +270,6 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(this, ProfileActivity.class));
 
         });
-        fabRun.setOnClickListener(v -> gestionarInicio());
+        fabRun.setOnClickListener(v -> startActivity(new Intent(this, WorkoutSelectionActivity.class)));
     }
 }

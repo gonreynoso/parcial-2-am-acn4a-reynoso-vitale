@@ -85,4 +85,16 @@
     <string name="auth_toggle_login">¿Ya tenés cuenta? Ingresá</string>
     <string name="profile_sign_out">Cerrar sesión</string>
 
+    <!-- Selección de entrenamiento -->
+    <string name="busca_entrenamientos">Busca entrenamientos</string>
+    <string name="entrenamientos_personalizados">Entrenamientos personalizados</string>
+    <string name="crear_entrenamiento">+ Crear entrenamiento</string>
+    <string name="monitorea_entrenamiento_telefono">Monitorea el entrenamiento en tu teléfono</string>
+    <string name="actividad_senderismo">Senderismo</string>
+    <string name="actividad_bicicleta">Andar en bicicleta</string>
+    <string name="actividad_caminar">Caminar</string>
+    <string name="duracion_label">Duración</string>
+    <string name="distancia_km_label">Distancia (km)</string>
+    <string name="ritmo_label">Ritmo</string>
+
 </resources>
