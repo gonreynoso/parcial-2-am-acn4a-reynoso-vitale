@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo_oscuro"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/spacing_lg">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/btnBack"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_arrow_back"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                app:tint="@color/white"
+                android:contentDescription="@string/content_desc_back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/padding_content"
+                android:text="@string/busca_entrenamientos"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_subtitle"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/spacing_xl">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/entrenamientos_personalizados"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_subtitle"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/objectives_see_all"
+                android:textColor="@color/accent_green"
+                android:textSize="@dimen/text_size_body" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/btnCrearEntrenamiento"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_action_button"
+            android:layout_marginTop="@dimen/padding_card"
+            android:background="@drawable/bg_card"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="@string/crear_entrenamiento"
+            android:textColor="@color/accent_green"
+            android:textSize="@dimen/text_size_body"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_xl"
+            android:text="@string/monitorea_entrenamiento_telefono"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_subtitle"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/btnCorrer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_md"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/bg_card"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="@dimen/padding_card">
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_directions_run"
+                app:tint="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/padding_content"
+                android:text="@string/nav_run"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_body" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnSenderismo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_sm"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/bg_card"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="@dimen/padding_card">
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_directions_walk"
+                app:tint="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/padding_content"
+                android:text="@string/actividad_senderismo"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_body" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnBicicleta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_sm"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/bg_card"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="@dimen/padding_card">
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_directions_bike"
+                app:tint="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/padding_content"
+                android:text="@string/actividad_bicicleta"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_body" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnCaminar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_sm"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/bg_card"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="@dimen/padding_card">
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_directions_walk"
+                app:tint="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/padding_content"
+                android:text="@string/actividad_caminar"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_body" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

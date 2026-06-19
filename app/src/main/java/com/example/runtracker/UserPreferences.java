@@ -8,6 +8,11 @@ public class UserPreferences {
     private static final String PREFS_NAME = "sprint_user_prefs";
     private static final String KEY_USERNAME = "username";
     private static final String KEY_JOIN_YEAR = "join_year";
+    private static final String KEY_WEIGHT_KG = "weight_kg";
+    private static final String KEY_HEIGHT_CM = "height_cm";
+    private static final String KEY_AGE = "age";
+    private static final String KEY_GENDER = "gender";
+    private static final String KEY_PHOTO_PATH = "photo_path";
     private static final String DEFAULT_USERNAME = "Invitado";
 
     private final SharedPreferences prefs;
@@ -35,5 +40,50 @@ public class UserPreferences {
             int current = java.util.Calendar.getInstance().get(java.util.Calendar.YEAR);
             prefs.edit().putInt(KEY_JOIN_YEAR, current).apply();
         }
+    }
+
+    /** Weight in kg. 0 means "not set". */
+    public float getWeightKg() {
+        return prefs.getFloat(KEY_WEIGHT_KG, 0f);
+    }
+
+    public void setWeightKg(float weightKg) {
+        prefs.edit().putFloat(KEY_WEIGHT_KG, weightKg).apply();
+    }
+
+    /** Height in cm. 0 means "not set". */
+    public int getHeightCm() {
+        return prefs.getInt(KEY_HEIGHT_CM, 0);
+    }
+
+    public void setHeightCm(int heightCm) {
+        prefs.edit().putInt(KEY_HEIGHT_CM, heightCm).apply();
+    }
+
+    /** Age in years. 0 means "not set". */
+    public int getAge() {
+        return prefs.getInt(KEY_AGE, 0);
+    }
+
+    public void setAge(int age) {
+        prefs.edit().putInt(KEY_AGE, age).apply();
+    }
+
+    /** Gender code: "M", "F", "O" or empty when not set. */
+    public String getGender() {
+        return prefs.getString(KEY_GENDER, "");
+    }
+
+    public void setGender(String gender) {
+        prefs.edit().putString(KEY_GENDER, gender).apply();
+    }
+
+    /** Absolute path to the locally stored profile photo, or empty when none. */
+    public String getPhotoPath() {
+        return prefs.getString(KEY_PHOTO_PATH, "");
+    }
+
+    public void setPhotoPath(String path) {
+        prefs.edit().putString(KEY_PHOTO_PATH, path).apply();
     }
 }
