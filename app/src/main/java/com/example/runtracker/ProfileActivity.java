@@ -236,9 +236,7 @@ public class ProfileActivity extends AppCompatActivity {
             finish();
         });
         navProfile.setOnClickListener(v -> {});
-        fabRun.setOnClickListener(v -> {
-            startActivity(new Intent(this, MainActivity.class));
-            finish();
-        });
+        fabRun.setOnClickListener(v ->
+                startActivity(new Intent(this, WorkoutSelectionActivity.class)));
     }
 }
