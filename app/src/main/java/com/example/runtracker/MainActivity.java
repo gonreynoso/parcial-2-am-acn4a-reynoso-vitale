@@ -30,7 +30,8 @@ public class MainActivity extends AppCompatActivity {
     private static final int PASOS_CORRIENDO = 105;
     private static final int RACHA_DIAS = 3;
 
-    private View btnClima;
+    private android.view.View btnPerfil;
+    private android.widget.LinearLayout cardClima;
 
     private LinearLayout navHome, navProfile;
     private MaterialCardView fabRun;
@@ -52,10 +53,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //BTN CLIMA
-        btnClima = findViewById(R.id.btnClima);
-        btnClima.setOnClickListener(v -> {
-            // Viajamos a la nueva pantalla
-            Intent intent = new Intent(MainActivity.this, WeatherActivity.class);
+        btnPerfil = findViewById(R.id.btnPerfil);
+        btnPerfil.setOnClickListener(v -> {
+            startActivity(new Intent(this, ProfileActivity.class));
+        });
+
+        // Configurar la nueva Tarjeta del Clima
+        cardClima = findViewById(R.id.cardClima);
+        cardClima.setOnClickListener(v -> {
+            android.content.Intent intent = new android.content.Intent(MainActivity.this, WeatherActivity.class);
             startActivity(intent);
         });
 
