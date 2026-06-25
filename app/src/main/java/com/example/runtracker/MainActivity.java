@@ -45,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        LinearLayout cardClima = findViewById(R.id.cardClima);
+
         txtSaludo           = findViewById(R.id.txtSaludo);
         txtPasos            = findViewById(R.id.txtPasos);
         txtObjetivoProgreso = findViewById(R.id.txtObjetivoProgreso);
@@ -54,6 +57,12 @@ public class MainActivity extends AppCompatActivity {
         txtDuracion         = findViewById(R.id.txtDuracion);
         txtCarrerasHoy      = findViewById(R.id.txtCarrerasHoy);
         txtRachaTitulo      = findViewById(R.id.txtRachaTitulo);
+
+
+        cardClima.setOnClickListener(v -> {
+            android.content.Intent intent = new android.content.Intent(MainActivity.this, WeatherActivity.class);
+            startActivity(intent);
+        });
 
         loadFrase();
         setupNavbar();
