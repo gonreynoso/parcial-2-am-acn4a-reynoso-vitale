@@ -1,0 +1,126 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: #0a0a0a;
+  display: flex; justify-content: center; align-items: flex-start;
+  min-height: 100vh; padding: 20px;
+}
+.phone {
+  width: 390px; height: 844px;
+  background: #121212;
+  border-radius: 40px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 0 0 3px #2a2a2a, 0 25px 80px rgba(0,230,168,0.08);
+}
+.status-bar {
+  height: 44px; display: flex; align-items: center; justify-content: space-between;
+  padding: 0 28px; color: #fff; font-size: 14px; font-weight: 600;
+}
+.content { padding: 0 20px 100px; overflow-y: auto; height: calc(100% - 44px); }
+.card {
+  background: #1E1E1E; border-radius: 16px; padding: 16px; margin-bottom: 12px;
+}
+.neon { color: #00E6A8; }
+.muted { color: #AAAAAA; }
+.white { color: #fff; }
+.bold { font-weight: 700; }
+.navbar {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 72px; background: #1A1D21;
+  display: flex; align-items: center; justify-content: space-around;
+  border-top: 1px solid #2a2a2a; padding-bottom: 8px;
+}
+.nav-item { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.nav-item span { font-size: 11px; }
+.nav-item.active span, .nav-item.active svg { color: #00E6A8; }
+.nav-item.inactive span, .nav-item.inactive svg { color: #8A8F98; }
+.fab {
+  width: 56px; height: 56px; background: #00E6A8; border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  margin-top: -28px; box-shadow: 0 4px 20px rgba(0,230,168,0.4);
+}
+.metric-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.metric-card {
+  background: #1E1E1E; border-radius: 16px; padding: 16px;
+  text-align: center;
+}
+.metric-value { font-size: 20px; font-weight: 700; color: #fff; margin: 8px 0 4px; }
+.metric-label { font-size: 12px; color: #888; }
+.progress-bar {
+  height: 8px; background: #333; border-radius: 4px; margin-top: 10px; overflow: hidden;
+}
+.progress-fill { height: 100%; background: #00E6A8; border-radius: 4px; }
+.btn-primary {
+  background: #00E6A8; color: #000; border: none; border-radius: 8px;
+  padding: 14px; width: 100%; font-size: 15px; font-weight: 600; text-align: center;
+}
+.input {
+  background: #111; border: 1px solid #3A3A3A; border-radius: 8px;
+  padding: 14px; color: #fff; width: 100%; font-size: 14px; margin-top: 6px;
+}
+.btn-outline {
+  border: 1px solid #3A3A3A; border-radius: 8px; padding: 12px;
+  color: #fff; text-align: center; flex: 1; font-size: 13px;
+}
+
+.steps-circle {
+  width: 180px; height: 180px; border: 3px solid #00E6A8; border-radius: 50%;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  margin: 24px auto;
+}
+.steps-num { font-size: 48px; font-weight: 800; color: #00E6A8; }
+.hoy { text-align: center; color: #fff; font-size: 18px; font-weight: 600; margin-top: 16px; }
+.greeting { font-size: 22px; font-weight: 700; color: #fff; }
+.frase { color: #888; font-size: 14px; margin-top: 4px; margin-bottom: 8px; }
+.streak-row { display: flex; align-items: center; gap: 12px; }
+.streak-emoji { font-size: 32px; }
+</style></head><body>
+<div class="phone">
+  <div class="status-bar"><span>9:41</span><span>📶 🔋</span></div>
+  <div class="content" style="padding-bottom:90px">
+    <div class="greeting">Hola, Gonzalo 👋</div>
+    <div class="frase">Hoy es un buen día para correr</div>
+    <div class="hoy">Hoy</div>
+    <div class="steps-circle">
+      <div class="steps-num">4,267</div>
+      <div class="muted">Pasos</div>
+    </div>
+    <div class="card">
+      <div style="display:flex;justify-content:space-between">
+        <span class="white bold">Objetivo diario</span>
+        <span class="neon bold">4,267 / 10,000</span>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" style="width:43%"></div></div>
+    </div>
+    <div class="card streak-row">
+      <div class="streak-emoji">🔥</div>
+      <div>
+        <div class="white bold">Racha de 5 días</div>
+        <div class="muted" style="font-size:13px">¡Seguí así para mantenerla!</div>
+      </div>
+    </div>
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+        <span style="font-size:20px">🌤️</span>
+        <span class="white bold">Pronóstico y Actividad</span>
+      </div>
+      <div class="muted" style="font-size:14px">¿Salimos a correr o nos quedamos en casa?</div>
+      <div class="neon bold" style="text-align:right;margin-top:10px;font-size:14px">VER CLIMA ➔</div>
+    </div>
+    <div class="metric-grid">
+      <div class="metric-card"><div>📍</div><div class="metric-value">3.20 km</div><div class="metric-label">Distancia</div></div>
+      <div class="metric-card"><div>🔥</div><div class="metric-value">192 cal</div><div class="metric-label">Calorías</div></div>
+      <div class="metric-card"><div>⏱️</div><div class="metric-value">28:45</div><div class="metric-label">Tiempo</div></div>
+      <div class="metric-card"><div>🏃</div><div class="metric-value">2</div><div class="metric-label">Carreras</div></div>
+    </div>
+  </div>
+  <div class="navbar">
+    <div class="nav-item active"><span>🏠</span><span>Inicio</span></div>
+    <div class="fab">🏃</div>
+    <div class="nav-item inactive"><span>👤</span><span>Perfil</span></div>
+  </div>
+</div></body></html>
