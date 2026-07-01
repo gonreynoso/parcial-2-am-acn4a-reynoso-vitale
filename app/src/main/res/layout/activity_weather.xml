@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/fondo_oscuro"
     android:fillViewport="true"
+    android:fitsSystemWindows="true"
     tools:context=".WeatherActivity">
 
     <LinearLayout
@@ -14,14 +15,26 @@
         android:orientation="vertical"
         android:padding="20dp">
 
-        <ImageButton
-            android:id="@+id/btnVolver"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/ic_arrow_back" app:tint="@color/white"
-            android:contentDescription="Volver"
-            android:layout_marginBottom="10dp"/>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="10dp">
+
+            <ImageButton
+                android:id="@+id/btnVolver"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_gravity="start|center_vertical"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:contentDescription="@string/content_desc_back"
+                android:focusable="true"
+                android:padding="16dp"
+                android:scaleType="center"
+                android:src="@drawable/ic_arrow_back"
+                app:tint="@color/white" />
+        </FrameLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
