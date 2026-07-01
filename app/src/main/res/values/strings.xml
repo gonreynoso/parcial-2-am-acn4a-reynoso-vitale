@@ -34,10 +34,19 @@
     <string name="stats_title">Estadísticas</string>
     <string name="stats_total_km">Km totales</string>
     <string name="stats_total_runs">Carreras</string>
-    <string name="stats_best_time">Mejor tiempo</string>
+    <string name="stats_best_time">Mejor ritmo</string>
     <string name="stats_value_km">0 km</string>
     <string name="stats_value_runs">0</string>
     <string name="stats_value_time">--:--</string>
+    <string name="runs_history_title">Mis carreras</string>
+    <string name="runs_history_empty">Todavía no registraste ninguna carrera</string>
+    <string name="runs_see_all">Ver todo</string>
+    <string name="runs_delete_all">Borrar todas mis carreras</string>
+    <string name="runs_delete_confirm_title">Borrar carreras</string>
+    <string name="runs_delete_confirm_message">Se eliminarán todas tus carreras. Esta acción no se puede deshacer.</string>
+    <string name="runs_delete_confirm_ok">Borrar</string>
+    <string name="runs_deleted">Carreras eliminadas</string>
+    <string name="cancelar">Cancelar</string>
 
     <!-- Navbar -->
     <string name="nav_home">Inicio</string>
@@ -54,13 +63,30 @@
     <string name="streak_encouragement">¡Seguí así para mantenerla!</string>
     <string name="litros">1.2 L</string>
     <string name="time">7h 15m</string>
-    <string name="icono_de_pasos_desc">Icono de pasos</string>
+    <string name="icono_de_pasos_desc">Icono de duración de la carrera</string>
     <string name="icono_de_ubicacion_desc">icono_de_ubicacion_desc\n</string>
+    <string name="carreras_hoy_desc">Carreras de hoy</string>
+    <string name="metric_distance">Distancia</string>
+    <string name="metric_calories">Calorías</string>
+    <string name="metric_time">Tiempo</string>
+    <string name="metric_runs">Carreras</string>
 
     <!-- Editar perfil -->
     <string name="edit_profile_username_label">Nombre de usuario</string>
     <string name="edit_profile_username_hint">Ej: Gonzalo</string>
     <string name="edit_profile_save">Guardar</string>
+    <string name="edit_profile_change_photo">Cambiar foto</string>
+    <string name="edit_profile_weight_label">Peso (kg)</string>
+    <string name="edit_profile_weight_hint">Ej: 72.5</string>
+    <string name="edit_profile_height_label">Altura (cm)</string>
+    <string name="edit_profile_height_hint">Ej: 178</string>
+    <string name="edit_profile_age_label">Edad</string>
+    <string name="edit_profile_age_hint">Ej: 28</string>
+    <string name="edit_profile_gender_label">Género</string>
+    <string name="edit_profile_photo_error">No se pudo cargar la imagen</string>
+    <string name="gender_male">Masculino</string>
+    <string name="gender_female">Femenino</string>
+    <string name="gender_other">Otro</string>
 
     <!-- General -->
     <string name="content_desc_back">Volver</string>
@@ -82,5 +108,39 @@
     <string name="auth_toggle_register">¿No tenés cuenta? Registrate</string>
     <string name="auth_toggle_login">¿Ya tenés cuenta? Ingresá</string>
     <string name="profile_sign_out">Cerrar sesión</string>
+    <string name="profile_weight">Peso</string>
+    <string name="profile_height">Altura</string>
+    <string name="profile_imc">IMC</string>
+    <string name="health_empty">--</string>
+    <string name="profile_weight_value">%1$s kg</string>
+    <string name="profile_height_value">%1$d cm</string>
+
+    <!-- Selección de entrenamiento -->
+    <string name="busca_entrenamientos">Busca entrenamientos</string>
+    <string name="entrenamientos_personalizados">Entrenamientos personalizados</string>
+    <string name="crear_entrenamiento">+ Crear entrenamiento</string>
+    <string name="actividades_disponibles_titulo">Iniciar una actividad</string>
+    <string name="actividad_senderismo">Senderismo</string>
+    <string name="actividad_bicicleta">Andar en bicicleta</string>
+    <string name="actividad_caminar">Caminar</string>
+    <string name="create_workout_title">Crear entrenamiento</string>
+    <string name="create_workout_name_label">Nombre</string>
+    <string name="create_workout_name_hint">Ej: Mi 5K matutino</string>
+    <string name="create_workout_type_label">Tipo de actividad</string>
+    <string name="create_workout_goal_label">Meta (opcional)</string>
+    <string name="create_workout_goal_distance">Distancia (km)</string>
+    <string name="create_workout_goal_time">Tiempo (min)</string>
+    <string name="create_workout_goal_value_hint">Ej: 5</string>
+    <string name="create_workout_save">Guardar entrenamiento</string>
+    <string name="create_workout_name_required">Poné un nombre al entrenamiento</string>
+    <string name="create_workout_saved">Entrenamiento creado</string>
+    <string name="create_workout_error">No se pudo guardar el entrenamiento</string>
+    <string name="workout_goal_distance">Meta: %1$s km</string>
+    <string name="workout_goal_time">Meta: %1$s min</string>
+    <string name="duracion_label">Duración</string>
+    <string name="distancia_km_label">Distancia (km)</string>
+    <string name="ritmo_label">Ritmo</string>
+    <string name="ritmo_formato">%1$s /km</string>
+    <string name="permiso_ubicacion_denegado">Sin permiso de ubicación no podemos medir la distancia</string>
 
 </resources>

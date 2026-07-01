@@ -24,211 +24,200 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
+                android:orientation="vertical"
                 android:padding="@dimen/spacing_lg"
-                android:background="@color/gris_tarjeta">
-
-                <TextView
-                    android:id="@+id/tvAvatarInitial"
-                    android:layout_width="@dimen/size_avatar"
-                    android:layout_height="@dimen/size_avatar"
-                    android:background="@drawable/bg_avatar_circle"
-                    android:gravity="center"
-                    android:text="@string/profile_avatar_default"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/text_size_display"
-                    android:textStyle="bold"
-                    android:layout_marginEnd="@dimen/spacing_lg" />
+                android:background="@drawable/bg_card">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
 
-                    <TextView
-                        android:id="@+id/tvUsername"
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="@dimen/size_avatar"
+                        android:layout_height="@dimen/size_avatar"
+                        android:layout_marginEnd="@dimen/spacing_lg"
+                        app:cardCornerRadius="32dp"
+                        app:cardBackgroundColor="@color/neon_green">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:id="@+id/tvAvatarInitial"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:text="@string/profile_avatar_default"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/text_size_display"
+                                android:textStyle="bold" />
+
+                            <ImageView
+                                android:id="@+id/ivAvatarPhoto"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="centerCrop"
+                                android:visibility="gone"
+                                android:contentDescription="@string/profile_username" />
+
+                        </FrameLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvUsername"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/profile_username"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_size_headline"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvJoinDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/profile_join_date"
+                            android:textColor="@color/text_hint"
+                            android:textSize="@dimen/text_size_body"
+                            android:layout_marginTop="@dimen/spacing_xs" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/ivEditProfile"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/profile_username"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/text_size_display"
-                        android:textStyle="bold" />
+                        android:layout_gravity="top"
+                        android:padding="@dimen/spacing_xs"
+                        android:src="@drawable/ic_edit"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackgroundBorderless"
+                        app:tint="@color/white"
+                        android:contentDescription="@string/profile_edit" />
 
-                    <TextView
-                        android:id="@+id/tvJoinDate"
+                    <ImageView
+                        android:id="@+id/ivSignOut"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/profile_join_date"
-                        android:textColor="@color/text_hint"
-                        android:textSize="@dimen/text_size_body"
-                        android:layout_marginTop="@dimen/spacing_xs" />
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btnEditProfile"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/padding_card"
-                        android:text="@string/profile_edit"
-                        android:textColor="@color/black"
-                        app:backgroundTint="@color/neon_green"
-                        app:cornerRadius="20dp" />
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btnSignOut"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="@string/profile_sign_out"
-                        android:textColor="@color/white"
-                        app:backgroundTint="@color/gris_tarjeta"
-                        app:strokeColor="@color/text_hint"
-                        app:strokeWidth="1dp"
-                        app:cornerRadius="20dp" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <!-- OBJETIVOS -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="@dimen/spacing_xl">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/objectives_title"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/text_size_subtitle"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/objectives_see_all"
-                    android:textColor="@color/accent_green"
-                    android:textSize="@dimen/text_size_body" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="@dimen/padding_card">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginEnd="@dimen/spacing_sm"
-                    android:background="@color/gris_tarjeta"
-                    android:orientation="vertical"
-                    android:padding="@dimen/padding_card">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/objective_sleep"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/text_size_body"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/objective_count_1"
-                        android:textColor="@color/text_hint"
-                        android:textSize="@dimen/text_size_caption"
-                        android:layout_marginTop="@dimen/spacing_xs" />
+                        android:layout_gravity="top"
+                        android:layout_marginStart="@dimen/spacing_md"
+                        android:padding="@dimen/spacing_xs"
+                        android:src="@drawable/ic_logout"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackgroundBorderless"
+                        app:tint="@color/text_hint"
+                        android:contentDescription="@string/profile_sign_out" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:id="@+id/healthRow"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginStart="@dimen/spacing_sm"
-                    android:layout_marginEnd="@dimen/spacing_sm"
-                    android:background="@color/gris_tarjeta"
-                    android:orientation="vertical"
-                    android:padding="@dimen/padding_card">
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/spacing_lg"
+                    android:visibility="gone">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="@string/objective_activity"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/text_size_body"
-                        android:textStyle="bold" />
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                        <TextView
+                            android:id="@+id/tvHealthWeight"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/health_empty"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_size_subtitle"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/profile_weight"
+                            android:textColor="@color/text_hint"
+                            android:textSize="@dimen/text_size_caption"
+                            android:layout_marginTop="@dimen/spacing_xs" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="@string/objective_count_5"
-                        android:textColor="@color/text_hint"
-                        android:textSize="@dimen/text_size_caption"
-                        android:layout_marginTop="@dimen/spacing_xs" />
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
-                </LinearLayout>
+                        <TextView
+                            android:id="@+id/tvHealthHeight"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/health_empty"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_size_subtitle"
+                            android:textStyle="bold" />
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginStart="@dimen/spacing_sm"
-                    android:background="@color/gris_tarjeta"
-                    android:orientation="vertical"
-                    android:padding="@dimen/padding_card">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/profile_height"
+                            android:textColor="@color/text_hint"
+                            android:textSize="@dimen/text_size_caption"
+                            android:layout_marginTop="@dimen/spacing_xs" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="@string/objective_health"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/text_size_body"
-                        android:textStyle="bold" />
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/objective_count_1"
-                        android:textColor="@color/text_hint"
-                        android:textSize="@dimen/text_size_caption"
-                        android:layout_marginTop="@dimen/spacing_xs" />
+                        <TextView
+                            android:id="@+id/tvHealthImc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/health_empty"
+                            android:textColor="@color/accent_green"
+                            android:textSize="@dimen/text_size_subtitle"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/profile_imc"
+                            android:textColor="@color/text_hint"
+                            android:textSize="@dimen/text_size_caption"
+                            android:layout_marginTop="@dimen/spacing_xs" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
             </LinearLayout>
 
             <!-- LOGROS -->
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="@dimen/spacing_xl">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/achievements_title"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/text_size_subtitle"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/achievements_see_all"
-                    android:textColor="@color/accent_green"
-                    android:textSize="@dimen/text_size_body" />
-
-            </LinearLayout>
+                android:layout_marginTop="@dimen/spacing_xl"
+                android:text="@string/achievements_title"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_subtitle"
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -237,6 +226,7 @@
                 android:layout_marginTop="@dimen/padding_card">
 
                 <LinearLayout
+                    android:id="@+id/logroPrimeraCarrera"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -274,6 +264,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/logro5k"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -319,47 +310,11 @@
                 android:layout_marginTop="@dimen/spacing_sm">
 
                 <LinearLayout
+                    android:id="@+id/logro10k"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginEnd="@dimen/spacing_sm"
-                    android:background="@color/gris_tarjeta"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:padding="@dimen/spacing_lg">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="🔥"
-                        android:textSize="@dimen/text_size_emoji" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/achievement_streak"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/text_size_caption"
-                        android:textStyle="bold"
-                        android:gravity="center"
-                        android:layout_marginTop="@dimen/spacing_md" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/achievement_streak_desc"
-                        android:textColor="@color/text_hint"
-                        android:textSize="@dimen/text_size_small"
-                        android:gravity="center"
-                        android:layout_marginTop="@dimen/spacing_xs" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginStart="@dimen/spacing_sm"
                     android:background="@color/gris_tarjeta"
                     android:orientation="vertical"
                     android:gravity="center"
@@ -392,6 +347,12 @@
 
                 </LinearLayout>
 
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/spacing_sm" />
+
             </LinearLayout>
 
             <!-- ESTADÍSTICAS -->
@@ -412,7 +373,7 @@
 
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:layout_marginEnd="@dimen/spacing_sm"
                     android:background="@color/gris_tarjeta"
@@ -424,6 +385,7 @@
                         android:id="@+id/tvTotalKm"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:maxLines="1"
                         android:text="@string/stats_value_km"
                         android:textColor="@color/accent_green"
                         android:textSize="@dimen/text_size_headline"
@@ -441,7 +403,7 @@
 
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:layout_marginStart="@dimen/spacing_sm"
                     android:layout_marginEnd="@dimen/spacing_sm"
@@ -454,6 +416,7 @@
                         android:id="@+id/tvTotalRuns"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:maxLines="1"
                         android:text="@string/stats_value_runs"
                         android:textColor="@color/accent_green"
                         android:textSize="@dimen/text_size_headline"
@@ -471,7 +434,7 @@
 
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:layout_marginStart="@dimen/spacing_sm"
                     android:background="@color/gris_tarjeta"
@@ -483,6 +446,7 @@
                         android:id="@+id/tvBestTime"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:maxLines="1"
                         android:text="@string/stats_value_time"
                         android:textColor="@color/accent_green"
                         android:textSize="@dimen/text_size_headline"
@@ -499,6 +463,43 @@
                 </LinearLayout>
 
             </LinearLayout>
+
+            <!-- MIS CARRERAS -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="@dimen/spacing_xl">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/runs_history_title"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_subtitle"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvVerTodasCarreras"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="@dimen/spacing_xs"
+                    android:text="@string/runs_see_all"
+                    android:textColor="@color/accent_green"
+                    android:textSize="@dimen/text_size_body" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/contenedorCarreras"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/padding_card" />
 
         </LinearLayout>
 

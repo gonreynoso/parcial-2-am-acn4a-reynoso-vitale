@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -33,6 +36,20 @@
         <activity
             android:name=".ProfileActivity"
             android:exported="false" />
+        <activity
+            android:name=".WorkoutSelectionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".WorkoutTrackingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MyRunsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CreateWorkoutActivity"
+            android:exported="false" />
+
+        <activity android:name=".WeatherActivity" android:exported="false" />
     </application>
 
 </manifest>

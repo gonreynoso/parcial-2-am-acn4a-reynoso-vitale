@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo_oscuro"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:padding="@dimen/spacing_lg">
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_arrow_back"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            app:tint="@color/white"
+            android:contentDescription="@string/content_desc_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_content"
+            android:text="@string/create_workout_title"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_subtitle"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingTop="@dimen/spacing_xl"
+        android:paddingBottom="@dimen/spacing_lg">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Nombre -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/create_workout_name_label"
+                android:textColor="@color/gris_texto"
+                android:textSize="@dimen/text_size_label" />
+
+            <EditText
+                android:id="@+id/inputName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_md"
+                android:background="@drawable/bg_card"
+                android:padding="@dimen/padding_content"
+                android:textColor="@color/white"
+                android:textColorHint="@color/gris_texto"
+                android:hint="@string/create_workout_name_hint"
+                android:inputType="text"
+                android:maxLength="40" />
+
+            <!-- Tipo -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_lg"
+                android:text="@string/create_workout_type_label"
+                android:textColor="@color/gris_texto"
+                android:textSize="@dimen/text_size_label" />
+
+            <RadioGroup
+                android:id="@+id/groupType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_md"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/typeRun"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:buttonTint="@color/accent_green"
+                    android:text="@string/nav_run"
+                    android:textColor="@color/white" />
+
+                <RadioButton
+                    android:id="@+id/typeHike"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/accent_green"
+                    android:text="@string/actividad_senderismo"
+                    android:textColor="@color/white" />
+
+                <RadioButton
+                    android:id="@+id/typeBike"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/accent_green"
+                    android:text="@string/actividad_bicicleta"
+                    android:textColor="@color/white" />
+
+                <RadioButton
+                    android:id="@+id/typeWalk"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/accent_green"
+                    android:text="@string/actividad_caminar"
+                    android:textColor="@color/white" />
+
+            </RadioGroup>
+
+            <!-- Meta -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_lg"
+                android:text="@string/create_workout_goal_label"
+                android:textColor="@color/gris_texto"
+                android:textSize="@dimen/text_size_label" />
+
+            <RadioGroup
+                android:id="@+id/groupGoal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_md"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/goalDistance"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:buttonTint="@color/accent_green"
+                    android:text="@string/create_workout_goal_distance"
+                    android:textColor="@color/white" />
+
+                <RadioButton
+                    android:id="@+id/goalTime"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:buttonTint="@color/accent_green"
+                    android:text="@string/create_workout_goal_time"
+                    android:textColor="@color/white" />
+
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/inputGoalValue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_md"
+                android:background="@drawable/bg_card"
+                android:padding="@dimen/padding_content"
+                android:textColor="@color/white"
+                android:textColorHint="@color/gris_texto"
+                android:hint="@string/create_workout_goal_value_hint"
+                android:inputType="numberDecimal"
+                android:maxLength="6" />
+
+            <Button
+                android:id="@+id/btnGuardar"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="@dimen/spacing_xl"
+                android:text="@string/create_workout_save"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:backgroundTint="@color/neon_green" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

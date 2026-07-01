@@ -25,6 +25,9 @@
     <dimen name="text_size_display">28sp</dimen>
     <dimen name="text_size_emoji">32sp</dimen>
     <dimen name="text_size_giant">48sp</dimen>
+    <dimen name="text_size_workout_stat">64sp</dimen>
+    <dimen name="text_size_workout_distance">104sp</dimen>
+    <dimen name="text_size_workout_distance_label">16sp</dimen>
 
     <!-- Component sizes -->
     <dimen name="size_icon">24dp</dimen>
@@ -33,6 +36,7 @@
     <dimen name="size_steps_circle">200dp</dimen>
     <dimen name="size_splash_logo">280dp</dimen>
     <dimen name="height_action_button">60dp</dimen>
+    <dimen name="height_workout_button">72dp</dimen>
 
     <!-- Radius -->
     <dimen name="corner_radius">12dp</dimen>
