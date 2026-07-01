@@ -939,7 +939,10 @@ def build_word():
         "9. Componentes principales",
         "10. Integraciones externas",
         "11. Permisos y seguridad",
-        "12. Conclusiones y trabajo futuro",
+        "12. Trabajo realizado por modulo",
+        "13. Detalle tecnico de implementacion",
+        "14. Validacion y pruebas",
+        "15. Conclusiones y trabajo futuro",
     ]
     for item in toc_items:
         add_toc_entry(item)
@@ -1242,9 +1245,166 @@ def build_word():
     )
 
     # ══════════════════════════════════════════════════════════════════════════
-    # 12. CONCLUSIONES
+    # 12. TRABAJO REALIZADO
     # ══════════════════════════════════════════════════════════════════════════
-    add_section_title("12. Conclusiones y trabajo futuro", 1)
+    add_section_title("12. Trabajo realizado por modulo", 1)
+    add_body(
+        "El desarrollo se organizo por funcionalidades verticales, integrando interfaz, logica "
+        "de negocio y persistencia en cada modulo. El objetivo fue entregar una aplicacion "
+        "funcional de seguimiento deportivo con navegacion completa, datos del usuario, "
+        "registro de actividades y consulta de clima en tiempo real.",
+    )
+    add_styled_table(
+        ["Modulo", "Trabajo realizado", "Resultado funcional"],
+        [
+            ("Autenticacion",
+             "Implementacion de login, registro, validacion de campos, recuperacion de contrasena y creacion inicial del documento users/{uid}.",
+             "El usuario puede iniciar sesion, registrarse y mantener sus datos asociados a Firebase Auth."),
+            ("Dashboard",
+             "Construccion de pantalla principal con saludo personalizado, frase motivacional, objetivo diario, progreso de pasos y resumen de actividad.",
+             "El inicio muestra metricas calculadas a partir del historial de carreras del usuario."),
+            ("Perfil",
+             "Gestion de nombre, datos fisicos, IMC, foto local, estadisticas totales, logros, preview de carreras y cierre de sesion.",
+             "El usuario puede visualizar y editar su informacion personal desde una pantalla centralizada."),
+            ("Entrenamientos",
+             "Seleccion de tipo de actividad, creacion de entrenamientos personalizados con metas opcionales y listado persistente en Firestore.",
+             "Se soportan rutinas guardadas por usuario y reutilizables al iniciar una actividad."),
+            ("Tracking",
+             "Cronometro con pausa/reanudacion, calculo de distancia simulada por tipo de actividad, ritmo por km y guardado al detener.",
+             "Cada actividad finalizada queda registrada como una carrera en la subcoleccion runs."),
+            ("Historial",
+             "Listado de carreras recientes y vista completa de registros con borrado masivo mediante batch de Firestore.",
+             "El usuario puede auditar sus entrenamientos anteriores y limpiar el historial si lo necesita."),
+            ("Clima",
+             "Consumo de OpenWeatherMap con Retrofit, deserializacion Gson, visualizacion de temperatura, humedad, viento y visibilidad.",
+             "La app entrega una recomendacion contextual para entrenar segun la temperatura actual."),
+            ("UI/UX",
+             "Unificacion visual con tema oscuro, tarjetas reutilizables, iconografia vectorial, barra inferior y ajustes de accesibilidad tactil.",
+             "La experiencia mantiene consistencia visual y controles faciles de usar en pantallas moviles."),
+        ],
+        col_widths=[1.35, 2.95, 2.25],
+    )
+
+    add_section_title("12.1 Mejoras recientes en la pantalla de clima", 2)
+    add_body(
+        "Como ajuste puntual de usabilidad, se corrigio el boton de volver de WeatherActivity. "
+        "El control original estaba ubicado directamente dentro del ScrollView con una zona "
+        "tactil limitada, lo que podia hacer dificil presionarlo cerca del borde superior del "
+        "sistema. La solucion consistio en envolverlo en un contenedor estable de 56dp, "
+        "aumentar su target tactil, declarar explicitamente clickable/focusable, reutilizar "
+        "la descripcion accesible compartida y respetar las ventanas del sistema mediante "
+        "fitsSystemWindows.",
+    )
+
+    # ══════════════════════════════════════════════════════════════════════════
+    # 13. DETALLE TECNICO
+    # ══════════════════════════════════════════════════════════════════════════
+    add_section_title("13. Detalle tecnico de implementacion", 1)
+
+    add_section_title("13.1 Persistencia y repositorios", 2)
+    add_body(
+        "La persistencia remota se concentra en clases Repository para evitar que las Activities "
+        "conozcan los detalles de Firestore. RunRepository administra la subcoleccion runs y "
+        "WorkoutRepository administra la subcoleccion workouts. Ambos repositorios verifican "
+        "que exista un usuario autenticado antes de leer o escribir, devuelven listas vacias "
+        "ante errores de lectura y encapsulan el formato de documento usado por la base de datos.",
+    )
+    add_styled_table(
+        ["Operacion", "Clase", "Detalle"],
+        [
+            ("Guardar carrera", "RunRepository.save", "Persiste tipo, distancia, pasos, duracion y timestamp del servidor."),
+            ("Leer carreras", "RunRepository.loadRuns", "Ordena por timestamp descendente y limita la cantidad de resultados."),
+            ("Borrar historial", "RunRepository.deleteAll", "Elimina documentos con WriteBatch para ejecutar el borrado como lote."),
+            ("Guardar entrenamiento", "WorkoutRepository.save", "Persiste nombre, tipo de actividad, tipo de meta, valor y timestamp."),
+            ("Leer entrenamientos", "WorkoutRepository.loadWorkouts", "Devuelve entrenamientos del usuario autenticado ordenados por fecha."),
+        ],
+        col_widths=[1.7, 2.0, 2.8],
+    )
+
+    add_section_title("13.2 Calculo de metricas", 2)
+    add_body(
+        "Las metricas visibles no se almacenan duplicadas en el dashboard: se derivan a partir "
+        "de las carreras recuperadas desde Firestore. DashboardStats agrupa los registros por "
+        "dia local, calcula kilometros y duracion del dia actual, cuenta entrenamientos y "
+        "determina la racha consecutiva considerando hoy o ayer como punto de continuidad.",
+    )
+    add_bullet("Pasos estimados: distancia en metros / longitud promedio de zancada (0,75 m).")
+    add_bullet("Calorias estimadas: kilometros del dia * 60 kcal/km.")
+    add_bullet("Ritmo: duracion acumulada / distancia recorrida, expresado en minutos por kilometro.")
+    add_bullet("Racha: dias consecutivos con al menos una carrera registrada.")
+
+    add_section_title("13.3 Seguimiento de actividad", 2)
+    add_body(
+        "WorkoutTrackingActivity usa la clase Stopwatch como fuente de tiempo y actualiza la UI "
+        "una vez por segundo. La distancia se simula segun la velocidad base definida en "
+        "ActivityType y se le aplica una variacion pequena para evitar un ritmo artificialmente "
+        "perfecto. Al detener la actividad, se guarda un documento de carrera asociado al usuario.",
+    )
+
+    add_section_title("13.4 Consumo de API meteorologica", 2)
+    add_body(
+        "La integracion del clima se implementa con Retrofit. RetrofitClient expone una instancia "
+        "singleton configurada con la base URL de OpenWeatherMap y WeatherApiService define el "
+        "endpoint GET /weather. WeatherResponse modela la respuesta JSON y WeatherActivity "
+        "transforma los datos para mostrarlos al usuario: temperatura en Celsius, sensacion "
+        "termica, humedad, visibilidad y viento convertido de m/s a km/h.",
+    )
+    add_styled_table(
+        ["Condicion", "Recomendacion generada"],
+        [
+            ("Temperatura < 10 C", "Usar equipo termico, guantes y realizar entrada en calor."),
+            ("10 C a 17 C", "Clima fresco: rompevientos liviano suficiente."),
+            ("18 C a 25 C", "Clima favorable: ropa liviana e hidratacion."),
+            ("26 C o mas", "Evitar sol directo, llevar agua y usar gorra."),
+        ],
+        col_widths=[2.2, 4.3],
+    )
+
+    add_section_title("13.5 Persistencia local", 2)
+    add_body(
+        "UserPreferences encapsula SharedPreferences para mantener datos de perfil disponibles "
+        "de forma inmediata: nombre, anio de ingreso, peso, altura, edad, genero y ruta de foto. "
+        "ImageStorage complementa esta capa guardando la imagen de perfil en el almacenamiento "
+        "interno de la aplicacion, con redimensionado y compresion para controlar uso de memoria.",
+    )
+
+    # ══════════════════════════════════════════════════════════════════════════
+    # 14. VALIDACION
+    # ══════════════════════════════════════════════════════════════════════════
+    add_section_title("14. Validacion y pruebas", 1)
+    add_body(
+        "La validacion se realizo combinando revision funcional de pantallas, compilacion del "
+        "proyecto Android y comprobacion de recursos. Tambien se verifico que los flujos criticos "
+        "tengan manejo de estados basicos: ausencia de usuario autenticado, errores de lectura "
+        "en Firestore, fallos de red en clima y campos obligatorios en formularios.",
+    )
+    add_styled_table(
+        ["Validacion", "Comando / metodo", "Resultado esperado"],
+        [
+            ("Compilacion debug", "./gradlew.bat :app:assembleDebug", "APK debug generado sin errores de compilacion."),
+            ("Recursos Android", "./gradlew.bat :app:processDebugResources", "Layouts, strings, drawables y manifest procesados correctamente."),
+            ("Navegacion", "Prueba manual por Activities", "Transiciones con Intent y finish() funcionando."),
+            ("Firestore", "Lectura/escritura con usuario autenticado", "Datos aislados bajo users/{uid}."),
+            ("Clima", "Respuesta Retrofit / manejo onFailure", "UI actualizada o mensaje de error ante falla de red."),
+        ],
+        col_widths=[1.7, 2.5, 2.3],
+    )
+
+    add_section_title("14.1 Limitaciones conocidas", 2)
+    limitations = [
+        "El tracking usa distancia simulada; la integracion GPS real esta preparada a nivel de permisos y dependencia, pero queda como evolucion.",
+        "Los botones sociales de Google y GitHub estan visibles como acceso futuro, todavia sin proveedor OAuth activo.",
+        "La API key de OpenWeatherMap esta embebida en codigo fuente; en produccion deberia moverse a una configuracion segura.",
+        "El borrado masivo de carreras usa WriteBatch; para mas de 500 documentos deberia paginarse.",
+        "La foto de perfil se guarda localmente; si el usuario cambia de dispositivo, no se sincroniza automaticamente.",
+    ]
+    for limitation in limitations:
+        add_bullet(limitation)
+
+    # ══════════════════════════════════════════════════════════════════════════
+    # 15. CONCLUSIONES
+    # ══════════════════════════════════════════════════════════════════════════
+    add_section_title("15. Conclusiones y trabajo futuro", 1)
     add_body(
         "Sprint demuestra la integracion de tecnologias moviles modernas: autenticacion en la "
         "nube, base de datos NoSQL, consumo de APIs REST, Material Design y persistencia hibrida "
