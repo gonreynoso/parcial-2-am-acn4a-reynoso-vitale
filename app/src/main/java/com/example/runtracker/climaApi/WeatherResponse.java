@@ -3,7 +3,6 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 public class WeatherResponse {
 
-
     private Main main;
     private List<Weather> weather;
     private Wind wind;
@@ -21,7 +20,7 @@ public class WeatherResponse {
         private int humidity;
 
         @SerializedName("feels_like")
-        private float feelsLike; // NUEVO: Sensación térmica
+        private float feelsLike; 
 
         public float getTemp() { return temp; }
         public int getHumidity() { return humidity; }

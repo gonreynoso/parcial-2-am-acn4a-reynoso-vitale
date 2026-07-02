@@ -13,7 +13,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/** Stores and reads the user's custom workouts under Firestore. */
 public class WorkoutRepository {
 
     public interface OnWorkoutsLoaded {

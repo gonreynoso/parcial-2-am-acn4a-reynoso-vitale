@@ -26,9 +26,9 @@ public class MainActivity extends AppCompatActivity {
 
     private static final int OBJETIVO_PASOS = 10000;
     private static final int MAX_RUNS = 200;
-    // Flat estimate (kcal per km). Weight is available now and could personalize this later.
+    
     private static final double CALORIAS_POR_KM = 60;
-    // Average stride length to simulate steps from real distance.
+    
     private static final double STRIDE_METERS = 0.75;
 
     private final RunRepository runRepository = new RunRepository();
@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         LinearLayout cardClima = findViewById(R.id.cardClima);
 
         txtSaludo           = findViewById(R.id.txtSaludo);
@@ -57,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
         txtDuracion         = findViewById(R.id.txtDuracion);
         txtCarrerasHoy      = findViewById(R.id.txtCarrerasHoy);
         txtRachaTitulo      = findViewById(R.id.txtRachaTitulo);
-
 
         cardClima.setOnClickListener(v -> {
             android.content.Intent intent = new android.content.Intent(MainActivity.this, WeatherActivity.class);

@@ -3,20 +3,20 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <!-- Navbar / Tema oscuro neón -->
+    
     <color name="neon_green">#00E6A8</color>
     <color name="bar_bg">#1A1D21</color>
     <color name="icon_inactive">#8A8F98</color>
     <color name="icon_active">#FFFFFF</color>
     <color name="bg_dark">#0E1013</color>
 
-    <!-- Pantalla principal (Vitale) -->
+    
     <color name="fondo_oscuro">#121212</color>
     <color name="fitbit_teal">#00E6A8</color>
     <color name="gris_texto">#AAAAAA</color>
     <color name="gris_tarjeta">#1E1E1E</color>
 
-    <!-- Textos y acentos -->
+    
     <color name="text_error">#FF5252</color>
     <color name="text_hint">#888888</color>
     <color name="accent_green">#00E5A0</color>

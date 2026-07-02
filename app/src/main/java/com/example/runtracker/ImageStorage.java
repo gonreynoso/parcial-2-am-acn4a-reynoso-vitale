@@ -10,10 +10,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-/**
- * Stores the profile photo locally (app internal storage), downsampled to keep
- * memory and disk usage sane. No external image library, no cloud upload.
- */
 public final class ImageStorage {
 
     private static final String FILE_NAME = "profile.jpg";
@@ -23,7 +19,7 @@ public final class ImageStorage {
     private ImageStorage() {
     }
 
-    /** Copies and resizes the picked image into internal storage, returning its path. */
+    
     public static String saveProfilePhoto(Context context, Uri source) throws IOException {
         Bitmap decoded = decodeSampled(context, source);
         if (decoded == null) {

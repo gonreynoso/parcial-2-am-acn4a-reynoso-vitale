@@ -15,10 +15,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Persists completed runs to Firestore under the current user.
- * Centralizes the run document shape so every screen writes the same structure.
- */
 public class RunRepository {
 
     public interface OnRunsLoaded {
@@ -29,11 +25,7 @@ public class RunRepository {
         void onComplete();
     }
 
-    /**
-     * Deletes every run of the signed-in user in a single batch.
-     * Fine for this app's volumes; a WriteBatch caps at 500 operations, so a real
-     * production dataset would need pagination.
-     */
+    
     public void deleteAll(OnComplete callback) {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user == null) {
@@ -61,10 +53,7 @@ public class RunRepository {
                 .addOnFailureListener(e -> callback.onComplete());
     }
 
-    /**
-     * Loads the most recent runs for the signed-in user, newest first.
-     * Returns an empty list (never null) when there is no user or the read fails.
-     */
+    
     public void loadRuns(int limit, OnRunsLoaded callback) {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user == null) {
@@ -89,10 +78,7 @@ public class RunRepository {
                 .addOnFailureListener(e -> callback.onLoaded(Collections.emptyList()));
     }
 
-    /**
-     * Saves a finished run for the signed-in user. No-op when there is no user
-     * or the run has neither distance nor steps (nothing worth recording).
-     */
+    
     public void save(String activityType, double distanceKm, int steps, long durationSeconds) {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user == null) return;

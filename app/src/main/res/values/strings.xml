@@ -48,7 +48,7 @@
     <string name="runs_deleted">Carreras eliminadas</string>
     <string name="cancelar">Cancelar</string>
 
-    <!-- Navbar -->
+    
     <string name="nav_home">Inicio</string>
     <string name="nav_run">Correr</string>
     <string name="nav_profile">Perfil</string>
@@ -58,7 +58,7 @@
     <string name="historial">Actividades</string>
     <string name="inicio">Inicio</string>
 
-    <!-- Pantalla principal (Vitale) -->
+    
     <string name="daily_goal_title">Objetivo diario</string>
     <string name="streak_encouragement">¡Seguí así para mantenerla!</string>
     <string name="litros">1.2 L</string>
@@ -71,7 +71,7 @@
     <string name="metric_time">Tiempo</string>
     <string name="metric_runs">Carreras</string>
 
-    <!-- Editar perfil -->
+    
     <string name="edit_profile_username_label">Nombre de usuario</string>
     <string name="edit_profile_username_hint">Ej: Gonzalo</string>
     <string name="edit_profile_save">Guardar</string>
@@ -88,11 +88,11 @@
     <string name="gender_female">Femenino</string>
     <string name="gender_other">Otro</string>
 
-    <!-- General -->
+    
     <string name="content_desc_back">Volver</string>
     <string name="profile_avatar_default">G</string>
 
-    <!-- Auth -->
+    
     <string name="login_tagline">Tu compañero de carrera</string>
     <string name="auth_title_login">Bienvenido de vuelta</string>
     <string name="auth_title_register">Crear cuenta</string>
@@ -115,7 +115,7 @@
     <string name="profile_weight_value">%1$s kg</string>
     <string name="profile_height_value">%1$d cm</string>
 
-    <!-- Selección de entrenamiento -->
+    
     <string name="busca_entrenamientos">Busca entrenamientos</string>
     <string name="entrenamientos_personalizados">Entrenamientos personalizados</string>
     <string name="crear_entrenamiento">+ Crear entrenamiento</string>

@@ -42,7 +42,7 @@ public class UserPreferences {
         }
     }
 
-    /** Weight in kg. 0 means "not set". */
+    
     public float getWeightKg() {
         return prefs.getFloat(KEY_WEIGHT_KG, 0f);
     }
@@ -51,7 +51,7 @@ public class UserPreferences {
         prefs.edit().putFloat(KEY_WEIGHT_KG, weightKg).apply();
     }
 
-    /** Height in cm. 0 means "not set". */
+    
     public int getHeightCm() {
         return prefs.getInt(KEY_HEIGHT_CM, 0);
     }
@@ -60,7 +60,7 @@ public class UserPreferences {
         prefs.edit().putInt(KEY_HEIGHT_CM, heightCm).apply();
     }
 
-    /** Age in years. 0 means "not set". */
+    
     public int getAge() {
         return prefs.getInt(KEY_AGE, 0);
     }
@@ -69,7 +69,7 @@ public class UserPreferences {
         prefs.edit().putInt(KEY_AGE, age).apply();
     }
 
-    /** Gender code: "M", "F", "O" or empty when not set. */
+    
     public String getGender() {
         return prefs.getString(KEY_GENDER, "");
     }
@@ -78,7 +78,7 @@ public class UserPreferences {
         prefs.edit().putString(KEY_GENDER, gender).apply();
     }
 
-    /** Absolute path to the locally stored profile photo, or empty when none. */
+    
     public String getPhotoPath() {
         return prefs.getString(KEY_PHOTO_PATH, "");
     }

@@ -24,7 +24,7 @@
             android:orientation="vertical"
             android:padding="@dimen/spacing_lg">
 
-            <!-- Saludo -->
+            
             <TextView
                 android:id="@+id/txtSaludo"
                 android:layout_width="wrap_content"
@@ -53,7 +53,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_gravity="center_horizontal"/>
 
-            <!-- Círculo pasos -->
+            
             <LinearLayout
                 android:id="@+id/cardPasos"
                 android:layout_width="@dimen/size_steps_circle"
@@ -80,7 +80,7 @@
                     android:textColor="@color/gris_texto" />
             </LinearLayout>
 
-            <!-- Objetivo diario -->
+            
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -125,7 +125,7 @@
                     android:progressBackgroundTint="@color/gris_texto"/>
             </LinearLayout>
 
-            <!-- Card de racha -->
+            
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -220,7 +220,7 @@
                     android:layout_gravity="end"/>
             </LinearLayout>
 
-            <!-- Métricas (las de Vitale) -->
+            
             <LinearLayout
                 android:id="@+id/layoutMetricas"
                 android:layout_width="match_parent"

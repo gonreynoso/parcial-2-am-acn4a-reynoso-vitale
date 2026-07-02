@@ -144,7 +144,7 @@ public class LoginActivity extends AppCompatActivity {
             auth.createUserWithEmailAndPassword(email, password)
                     .addOnSuccessListener(result -> {
                         String uid = result.getUser().getUid();
-                        // Use the part before @ as the initial display name
+                        
                         String username = email.contains("@")
                                 ? email.substring(0, email.indexOf('@'))
                                 : email;
@@ -167,12 +167,12 @@ public class LoginActivity extends AppCompatActivity {
                 .document(uid)
                 .set(data)
                 .addOnSuccessListener(unused -> {
-                    // Seed local prefs so ProfileActivity has something before Firestore loads
+                    
                     new UserPreferences(this).setUsername(username);
                     navigateToMain();
                 })
                 .addOnFailureListener(e -> {
-                    // Auth succeeded; navigate anyway and let profile load from Firestore later
+                    
                     navigateToMain();
                 });
     }

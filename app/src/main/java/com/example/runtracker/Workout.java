@@ -2,7 +2,6 @@ package com.example.runtracker;
 
 import com.google.firebase.firestore.DocumentSnapshot;
 
-/** A user-defined workout shortcut: a name, an activity type and an optional goal. */
 public class Workout {
 
     public static final String GOAL_NONE = "";
@@ -12,9 +11,9 @@ public class Workout {
     public final String id;
     public final String name;
     public final ActivityType type;
-    /** One of GOAL_NONE / GOAL_DISTANCE / GOAL_TIME. */
+    
     public final String goalType;
-    /** Kilometers for a distance goal, minutes for a time goal. */
+    
     public final double goalValue;
 
     public Workout(String id, String name, ActivityType type, String goalType, double goalValue) {

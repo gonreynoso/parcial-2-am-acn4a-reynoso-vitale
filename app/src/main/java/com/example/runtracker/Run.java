@@ -4,7 +4,6 @@ import com.google.firebase.firestore.DocumentSnapshot;
 
 import java.util.Date;
 
-/** Immutable view of a stored run, decoupled from Firestore types. */
 public class Run {
 
     public final ActivityType type;

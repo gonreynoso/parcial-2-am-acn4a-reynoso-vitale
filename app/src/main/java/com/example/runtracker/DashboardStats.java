@@ -6,7 +6,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/** Today's totals plus the current run streak, derived from the user's runs. */
 public class DashboardStats {
 
     private static final long MILLIS_PER_DAY = 86_400_000L;
@@ -44,10 +43,7 @@ public class DashboardStats {
         return new DashboardStats(todayKm, todayDuration, todayCount, computeStreak(daysWithRun, todayIndex));
     }
 
-    /**
-     * Consecutive days ending today (or yesterday, if today has no run yet so the
-     * streak is still alive) with at least one run.
-     */
+    
     private static int computeStreak(Set<Long> daysWithRun, long todayIndex) {
         long cursor = todayIndex;
         if (!daysWithRun.contains(cursor)) {
@@ -61,7 +57,7 @@ public class DashboardStats {
         return streak;
     }
 
-    /** Local-midnight day bucket, so two runs on the same calendar day share an index. */
+    
     private static long dayIndex(Date date) {
         Calendar c = Calendar.getInstance();
         c.setTime(date);

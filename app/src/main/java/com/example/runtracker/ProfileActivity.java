@@ -92,7 +92,7 @@ public class ProfileActivity extends AppCompatActivity {
         UserPreferences prefs = new UserPreferences(this);
         prefs.initializeJoinYearIfNeeded();
 
-        // Show local data immediately for a snappy UI
+        
         String username = prefs.getUsername();
         tvUsername.setText(username);
         tvAvatarInitial.setText(getInitial(username));
@@ -103,7 +103,7 @@ public class ProfileActivity extends AppCompatActivity {
         mostrarFoto(prefs.getPhotoPath());
         renderSalud(prefs.getWeightKg(), prefs.getHeightCm());
 
-        // Refresh from Firestore if the user is authenticated
+        
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user == null) return;
 

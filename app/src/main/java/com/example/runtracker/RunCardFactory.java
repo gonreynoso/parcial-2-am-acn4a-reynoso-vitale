@@ -9,7 +9,6 @@ import android.widget.TextView;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 
-/** Inflates and binds a single run card from {@link R.layout#item_run_card}. */
 public final class RunCardFactory {
 
     private static final Locale ES_AR = new Locale("es", "AR");

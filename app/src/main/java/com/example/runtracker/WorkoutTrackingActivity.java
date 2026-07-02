@@ -99,12 +99,12 @@ public class WorkoutTrackingActivity extends AppCompatActivity {
         finish();
     }
 
-    /** Called once per second while running. Accumulates simulated distance for this tick. */
+    
     private void onTick(long segundos) {
         duracionSegundos = segundos;
 
-        // One second elapsed since the previous tick: add the distance covered at the
-        // activity's base speed, with ±15% jitter so the pace looks natural.
+        
+        
         float jitter = 0.85f + random.nextFloat() * 0.30f;
         distanciaMetros += activityType.speedMetersPerSecond * jitter;
 

@@ -23,7 +23,7 @@ import retrofit2.Response;
 
 public class WeatherActivity extends AppCompatActivity {
 
-    // Vistas de la tarjeta
+    
     private TextView txtUbicacion, txtFechaHora, txtTempPrincipal, txtCondicion;
     private TextView txtSensacion, txtVisibilidad, txtViento, txtHumedad;
     private ImageView imgIconoClima;
@@ -40,7 +40,6 @@ public class WeatherActivity extends AppCompatActivity {
 
         inicializarVistas();
         configurarBotonVolver();
-
 
         actualizarFechaHora();
 
@@ -62,7 +61,7 @@ public class WeatherActivity extends AppCompatActivity {
     }
 
     private void configurarBotonVolver() {
-        btnVolver.setOnClickListener(v -> finish()); // Cierra la actividad y vuelve al Dashboard
+        btnVolver.setOnClickListener(v -> finish()); 
     }
 
     private void actualizarFechaHora() {
@@ -74,7 +73,7 @@ public class WeatherActivity extends AppCompatActivity {
     private void obtenerClimaActual(double lat, double lon) {
         WeatherApiService apiService = RetrofitClient.getClient().create(WeatherApiService.class);
 
-        // Pedimos en español ("es") y en grados Celsius ("metric")
+        
         Call<WeatherResponse> call = apiService.getCurrentWeather(lat, lon, API_KEY, "metric", "es");
 
         call.enqueue(new Callback<WeatherResponse>() {
@@ -83,7 +82,7 @@ public class WeatherActivity extends AppCompatActivity {
                 if (response.isSuccessful() && response.body() != null) {
                     WeatherResponse weatherData = response.body();
 
-                    // 1. Datos Principales
+                    
                     txtUbicacion.setText(weatherData.getName() + ", AR");
                     txtTempPrincipal.setText(Math.round(weatherData.getMain().getTemp()) + "°C");
 
@@ -103,15 +102,15 @@ public class WeatherActivity extends AppCompatActivity {
                         txtCondicion.setText(weatherData.getWeather().get(0).getDescription());
                     }
 
-                    // 3. Grilla Premium
+                    
                     txtSensacion.setText(Math.round(weatherData.getMain().getFeelsLike()) + "°C");
                     txtHumedad.setText(weatherData.getMain().getHumidity() + "%");
 
-                    // Viento (OpenWeather devuelve m/s, lo multiplicamos por 3.6 para km/h)
+                    
                     int vientoKmh = (int) Math.round(weatherData.getWind().getSpeed() * 3.6);
                     txtViento.setText(vientoKmh + " KM/H");
 
-                    // Visibilidad (Viene en metros, la pasamos a KM)
+                    
                     int visibilidadKm = weatherData.getVisibility() / 1000;
                     txtVisibilidad.setText(visibilidadKm + " KM");
 
@@ -119,7 +118,6 @@ public class WeatherActivity extends AppCompatActivity {
                     Toast.makeText(WeatherActivity.this, "Error al obtener datos", Toast.LENGTH_SHORT).show();
                 }
             }
-
 
             @Override
             public void onFailure(Call<WeatherResponse> call, Throwable t) {

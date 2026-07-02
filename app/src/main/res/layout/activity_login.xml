@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:padding="32dp">
 
-        <!-- Brand row: logo circle + app name (chain head, centers the block vertically) -->
+        
         <LinearLayout
             android:id="@+id/brandRow"
             android:layout_width="wrap_content"
@@ -45,7 +45,7 @@
 
         </LinearLayout>
 
-        <!-- Title -->
+        
         <TextView
             android:id="@+id/tvAuthTitle"
             android:layout_width="wrap_content"
@@ -59,7 +59,7 @@
             app:layout_constraintBottom_toTopOf="@id/tvToggleMode"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <!-- Toggle link -->
+        
         <TextView
             android:id="@+id/tvToggleMode"
             android:layout_width="wrap_content"
@@ -74,7 +74,7 @@
             app:layout_constraintBottom_toTopOf="@id/socialRow"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <!-- Social buttons -->
+        
         <LinearLayout
             android:id="@+id/socialRow"
             android:layout_width="0dp"
@@ -114,7 +114,7 @@
 
         </LinearLayout>
 
-        <!-- OR separator -->
+        
         <LinearLayout
             android:id="@+id/orRow"
             android:layout_width="0dp"
@@ -152,7 +152,7 @@
 
         </LinearLayout>
 
-        <!-- Email label -->
+        
         <TextView
             android:id="@+id/emailLabel"
             android:layout_width="wrap_content"
@@ -165,7 +165,7 @@
             app:layout_constraintBottom_toTopOf="@id/tilEmail"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <!-- Email input -->
+        
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilEmail"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -192,7 +192,7 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Password label -->
+        
         <TextView
             android:id="@+id/passwordLabel"
             android:layout_width="wrap_content"
@@ -205,7 +205,7 @@
             app:layout_constraintBottom_toTopOf="@id/tilPassword"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <!-- Password input -->
+        
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilPassword"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -233,7 +233,7 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Error -->
+        
         <TextView
             android:id="@+id/tvAuthError"
             android:layout_width="0dp"
@@ -247,7 +247,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- Submit button -->
+        
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnAuth"
             android:layout_width="0dp"
@@ -263,7 +263,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- Forgot password -->
+        
         <TextView
             android:id="@+id/tvForgotPassword"
             android:layout_width="wrap_content"
@@ -278,7 +278,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <!-- Hidden: kept for Java compatibility -->
+        
         <TextView
             android:id="@+id/tvAuthSubtitle"
             android:layout_width="wrap_content"

@@ -9,7 +9,7 @@
     android:fitsSystemWindows="true"
     android:padding="20dp">
 
-    <!-- Header -->
+    
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Avatar -->
+            
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardAvatar"
                 android:layout_width="100dp"
@@ -89,7 +89,7 @@
                 android:textColor="@color/accent_green"
                 android:textSize="@dimen/text_size_body" />
 
-            <!-- Nombre -->
+            
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -122,7 +122,7 @@
                 android:visibility="gone"
                 tools:text="El nombre no puede estar vacío" />
 
-            <!-- Peso y altura -->
+            
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -189,7 +189,7 @@
 
             </LinearLayout>
 
-            <!-- Edad -->
+            
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -211,7 +211,7 @@
                 android:inputType="number"
                 android:maxLength="3" />
 
-            <!-- Género -->
+            
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -256,7 +256,7 @@
 
             </RadioGroup>
 
-            <!-- Botón guardar -->
+            
             <Button
                 android:id="@+id/btnGuardar"
                 android:layout_width="match_parent"

@@ -2,13 +2,12 @@ package com.example.runtracker;
 
 import java.util.List;
 
-/** Aggregated metrics derived from a user's runs. */
 public class RunStats {
 
     public final double totalKm;
     public final int count;
     public final double maxDistanceKm;
-    /** Best (lowest) pace across runs, in seconds per km. 0 when there are no valid runs. */
+    
     public final long bestPaceSecondsPerKm;
 
     private RunStats(double totalKm, int count, double maxDistanceKm, long bestPaceSecondsPerKm) {
